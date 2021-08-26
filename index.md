@@ -8,7 +8,7 @@ Hey folks, this little blog will include writeups of THM/HTB machines and some o
 If you have any questions or ideas to extend this blog, feel free to contact me via THM 
 
 New Tryhackme Rooms :\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * [Haskhell](/tryhackme/haskhell)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * [Haskhell](writeups/tryhackme/haskhell)
 
 Best regards,\
 Devang
