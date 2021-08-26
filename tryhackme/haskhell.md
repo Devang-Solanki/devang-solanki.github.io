@@ -27,7 +27,7 @@ We have discovered a webserver running on port 5001, which seems to hosted by a 
 
 ![](https://user-images.githubusercontent.com/75718583/130963432-ab921629-ac32-4c43-83a5-db48a40b6af0.png)
 
-On exploring the webiste there is a link for uploading homework that redirect to http://<IP>/upload which dose not seems to works.
+On exploring the webiste there is a link for uploading homework that redirect to http://IP/homerwork1/upload which dose not seems to works.
 
 lets run dirsearch for discovering hidden directories or files.
 
