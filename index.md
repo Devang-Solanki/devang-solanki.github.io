@@ -1,3 +1,7 @@
+---
+title: CTF Writeups
+---
+
 ## Welcome to my page
 
 Hey folks, this little blog will include writeups of THM/HTB machines and some other topics, which are related to IT Security.\
