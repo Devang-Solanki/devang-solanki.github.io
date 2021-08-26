@@ -1,1 +1,6 @@
+title: CTF Writeup
+logo: /assets/img/logo.png
+description: Writeups for CTF.
+show_downloads: true
+google_analytics:
 theme: jekyll-theme-minimal
