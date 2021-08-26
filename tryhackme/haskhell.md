@@ -1,6 +1,6 @@
 ---
+layout: default
 title: HaskHell 
-layout: template
 ---
 
 # HaskHell
