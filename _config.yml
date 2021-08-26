@@ -3,4 +3,4 @@ logo: https://user-images.githubusercontent.com/75718583/130945777-43711d0f-72f0
 description: Writeups for CTF.
 show_downloads: false
 baseurl: "/"
-theme: jekyll-theme-minimal
+theme: jekyll-theme-hacker
