@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: post
+date: 2021-8-26 -0500
 title: HaskHell 
 ---
 
