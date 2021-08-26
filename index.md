@@ -6,4 +6,4 @@ If you have any questions or ideas to extend this blog, feel free to contact me 
 Best regards,\
 Devang
 
-![](https://tryhackme-badges.s3.amazonaws.com/devangsolanki.png)
+![image](https://tryhackme-badges.s3.amazonaws.com/devangsolanki.png)
