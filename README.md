@@ -1,2 +1,0 @@
-# writeups
-Writeup for CTFs
