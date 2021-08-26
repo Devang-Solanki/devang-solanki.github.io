@@ -1,5 +1,8 @@
 title: CTF Writeups
 description: Writeups for CTF.
 show_downloads: false
-baseurl: "/"
+url: https://devang-solanki.github.io/writeups/tryhackme/haskhell
 theme: jekyll-theme-hacker
+
+github:
+  is_project_page: false
