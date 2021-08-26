@@ -1,10 +1,9 @@
 ---
 layout: post
 date: 2021-8-26 -0500
-title: HaskHell 
+title: HaskHell
+author: Devang-Solanki
 ---
-
-# HaskHell
 
 Room Description : Teach your CS professor that his PhD isn't in security.
 
