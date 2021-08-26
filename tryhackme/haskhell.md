@@ -1,7 +1,7 @@
 ---
 title: HaskHell 
 layout: template
-filename: haskhell
+filename: haskhell.md
 --- 
 
 #HaskHell
