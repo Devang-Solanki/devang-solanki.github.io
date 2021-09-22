@@ -10,6 +10,9 @@ If you have any questions or ideas to extend this blog, feel free to contact me 
 New Tryhackme Rooms :\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * [Haskhell](tryhackme/haskhell)
 
+Others :\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * [H@cktivityCon 2021](/hacktivityCon)
+
 Best regards,\
 Devang
 
