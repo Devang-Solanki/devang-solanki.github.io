@@ -7,18 +7,18 @@ author: Devang-Solanki
 
 ![image](https://user-images.githubusercontent.com/75718583/134384310-731ad34c-5c4b-4ea2-93a4-bbde11ed20ef.png)
 
-H@cktivity is a conference organised by Hackerone everyear. This was my first ever conference and CTF competition. Even though I had little experience with CTF (Mostly from Tryhackme) I had difficulty solving many problems. I was able to solve some entry level challenge. Here are some writeups for H@ctivityCon CTF which i was able to solve. 
+H@cktivityCon is a conference organised by Hackerone everyear. This was my first ever conference and CTF competition. Even though I had little experience with CTF (Mostly from Tryhackme) I had difficulty solving many problems. I was able to solve some entry level challenge. Here are some writeups for H@ctivityCon CTF which i was able to solve. 
 
 ## Target Practice
 
-We are given a GIF file after opening we can see it has some sort of 2D barcode on it, which changes pretty quick and was looping infinitely. So i decided to split slow down GIF animation into frames, I used [lunapic](https://www10.lunapic.com/editor/) to slow down the animatiom. I knew this wired looking 2D barcode were MaxiCode. I recognized tihs because i have watched this [What Are Those Other Weird QR Codes?](https://youtu.be/KMsvtqQqz5g) video by [Thio Joe](https://www.youtube.com/user/ThioJoe). I quickly downloaded this [Bracode Scanner](https://play.google.com/store/apps/details?id=com.manateeworks.barcodescanners&hl=en_US&gl=US) on my phone and started scaning all frames from the GIF. One of the frame contained the flag
+We were given a GIF file after opening we can see it has some sort of 2D barcode on it, which changes pretty quick and was looping infinitely. So i decided to split slow down GIF animation into frames, I used [lunapic](https://www10.lunapic.com/editor/) to slow down the animatiom. I knew this wired looking 2D barcode were MaxiCode. I recognized this from a video I have watched by [Thio Joe](https://www.youtube.com/user/ThioJoe) on [What Are Those Other Weird QR Codes?](https://youtu.be/KMsvtqQqz5g). I quickly downloaded this [Bracode Scanner](https://play.google.com/store/apps/details?id=com.manateeworks.barcodescanners&hl=en_US&gl=US) on my phone and started scaning all frames from the GIF. One of the frame contained this flag.
 `flag{385e3ae5d7b2ca2510be8ef4}`
 
 ## 2ez
 
 - We were given a file named 2ez.
-- I tried running `file 2ez' but didn't got any useful information.
-- The i checked the file headers by using `hexdump -n 36 -c 2ez' command 
+- I tried running `file 2ez` but didn't got any useful information.
+- Then I checked the file headers by using `hexdump -n 36 -c 2ez' command 
 ![image](https://user-images.githubusercontent.com/75718583/134359824-b154eb67-2f7a-4fae-ad04-ff70fab26fc3.png)
 - JFIF header means a jpeg file
 - Correct header for JFIF in hex is : FF D8 FF
@@ -59,7 +59,7 @@ We were given a cipher text which looked like base32 so I decoded it and got the
  
  We were given a source code file containing the follwing code :
  
- ```C
+ ```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
