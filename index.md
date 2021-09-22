@@ -11,7 +11,7 @@ New Tryhackme Rooms :\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * [Haskhell](tryhackme/haskhell)
 
 Others :\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * [H@cktivityCon 2021](/hacktivityCon)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * [H@cktivityCon 2021](hacktivityCon)
 
 Best regards,\
 Devang
