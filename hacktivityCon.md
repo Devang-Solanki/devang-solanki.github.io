@@ -200,6 +200,7 @@ flag{2d43e30a358d3f30fe65cc47a9cbbe98}
 > save
 ```
 - Now ssh as root on the machine
+
 ```console
 user@redlike-44e6479a7e6be38a-6559588cdd-ww42g:~$ ssh -i id_rsa root@127.0.0.1
 Enter passphrase for key 'id_rsa':
