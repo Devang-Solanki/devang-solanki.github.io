@@ -18,7 +18,7 @@ We were given a GIF file after opening we can see it has some sort of 2D barcode
 
 - We were given a file named 2ez.
 - I tried running `file 2ez` but didn't got any useful information.
-- Then I checked the file headers by using `hexdump -n 36 -c 2ez' command 
+- Then I checked the file headers by using `hexdump -n 36 -c 2ez` command 
 ![image](https://user-images.githubusercontent.com/75718583/134359824-b154eb67-2f7a-4fae-ad04-ff70fab26fc3.png)
 - JFIF header means a jpeg file
 - Correct header for JFIF in hex is : FF D8 FF
