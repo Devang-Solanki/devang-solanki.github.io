@@ -5,15 +5,13 @@ title: HacktivityCon 2021
 author: Devang-Solanki
 ---
 
-{% include navigation.html}
-
 ![image](https://user-images.githubusercontent.com/75718583/134384310-731ad34c-5c4b-4ea2-93a4-bbde11ed20ef.png)
 
 H@cktivityCon is a conference organised by Hackerone everyear. This was my first ever conference and CTF competition. Even though I had little experience with CTF (Mostly from Tryhackme) I had difficulty solving many problems. I was able to solve some entry level challenge. Here are some writeups for H@ctivityCon CTF which i was able to solve. 
 
 ## Target Practice
 
-We were given a GIF file after opening we can see it has some sort of 2D barcode on it, which changes pretty quick and was looping infinitely. So i decided to split slow down GIF animation into frames, I used [lunapic](https://www10.lunapic.com/editor/) to slow down the animatiom. I knew this wired looking 2D barcode were MaxiCode. I recognized this from a video I have watched by [Thio Joe](https://www.youtube.com/user/ThioJoe) on [What Are Those Other Weird QR Codes?](https://youtu.be/KMsvtqQqz5g). I quickly downloaded this [Bracode Scanner](https://play.google.com/store/apps/details?id=com.manateeworks.barcodescanners&hl=en_US&gl=US) on my phone and started scaning all frames from the GIF. One of the frame contained this flag.
+We were given a GIF file after opening we can see it has some sort of 2D barcode on it, which changes pretty quick and was looping infinitely. So i decided to split the GIF animation into frames, I used [lunapic](https://www10.lunapic.com/editor/) to slip the frames in GIF. I knew this wired looking 2D barcode were MaxiCode. I recognized this from a video I have watched by [Thio Joe](https://www.youtube.com/user/ThioJoe) on [What Are Those Other Weird QR Codes?](https://youtu.be/KMsvtqQqz5g). I quickly downloaded this [Bracode Scanner](https://play.google.com/store/apps/details?id=com.manateeworks.barcodescanners&hl=en_US&gl=US) on my phone and started scaning all frames from the GIF. One of the frame contained this flag.
 `flag{385e3ae5d7b2ca2510be8ef4}`
 
 ## 2ez
