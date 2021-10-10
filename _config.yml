@@ -6,3 +6,12 @@ theme: jekyll-theme-hacker
 
 github:
   is_project_page: false
+
+jekyll-archives:
+  enabled: []
+  layout: archive
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    category: '/category/:name/'
