@@ -7,9 +7,9 @@
   url: /tryhackme/
   sublinks:
     - title: Haskhell
-      url: tryhackme/haskhell
+      url: /tryhackme/haskhell
 - title: Others
   url: /Others/
   sublinks:
     - title: H@ctivityCon 2021
-
+    - url: /others/hacktivityCon
