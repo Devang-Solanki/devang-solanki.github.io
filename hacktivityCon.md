@@ -5,6 +5,8 @@ title: HacktivityCon 2021
 author: Devang-Solanki
 ---
 
+{% include navigation.html}
+
 ![image](https://user-images.githubusercontent.com/75718583/134384310-731ad34c-5c4b-4ea2-93a4-bbde11ed20ef.png)
 
 H@cktivityCon is a conference organised by Hackerone everyear. This was my first ever conference and CTF competition. Even though I had little experience with CTF (Mostly from Tryhackme) I had difficulty solving many problems. I was able to solve some entry level challenge. Here are some writeups for H@ctivityCon CTF which i was able to solve. 
