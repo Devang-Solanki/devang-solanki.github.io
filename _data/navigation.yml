@@ -3,12 +3,13 @@
 - title: Home
   url: /
 
-- title: Group of Things
-  url: /group/
+- title: Tryhackme
+  url: /tryhackme/
   sublinks:
-    - title: Sub-item 1
-      url: /group/si1
-    - title: Sub-item 2
-      url: /group/si2
-    - title: Sub-item 3
-      url: /group/si3
+    - title: Haskhell
+      url: tryhackme/haskhell
+- title: Others
+  url: /Others/
+  sublinks:
+    - title: H@ctivityCon 2021
+
