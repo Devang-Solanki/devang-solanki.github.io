@@ -11,7 +11,7 @@ H@cktivityCon is a conference organised by Hackerone everyear. This was my first
 
 ## Target Practice
 
-We were given a GIF file after opening we can see it has some sort of 2D barcode on it, which changes pretty quick and was looping infinitely. So i decided to split slow down GIF animation into frames, I used [lunapic](https://www10.lunapic.com/editor/) to slow down the animatiom. I knew this wired looking 2D barcode were MaxiCode. I recognized this from a video I have watched by [Thio Joe](https://www.youtube.com/user/ThioJoe) on [What Are Those Other Weird QR Codes?](https://youtu.be/KMsvtqQqz5g). I quickly downloaded this [Bracode Scanner](https://play.google.com/store/apps/details?id=com.manateeworks.barcodescanners&hl=en_US&gl=US) on my phone and started scaning all frames from the GIF. One of the frame contained this flag.
+We were given a GIF file after opening we can see it has some sort of 2D barcode on it, which changes pretty quick and was looping infinitely. So i decided to split the GIF animation into frames, I used [lunapic](https://www10.lunapic.com/editor/) to slip the frames in GIF. I knew this wired looking 2D barcode were MaxiCode. I recognized this from a video I have watched by [Thio Joe](https://www.youtube.com/user/ThioJoe) on [What Are Those Other Weird QR Codes?](https://youtu.be/KMsvtqQqz5g). I quickly downloaded this [Bracode Scanner](https://play.google.com/store/apps/details?id=com.manateeworks.barcodescanners&hl=en_US&gl=US) on my phone and started scaning all frames from the GIF. One of the frame contained this flag.
 `flag{385e3ae5d7b2ca2510be8ef4}`
 
 ## 2ez
