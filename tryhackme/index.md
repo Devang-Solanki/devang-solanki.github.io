@@ -19,8 +19,8 @@
         {% endif %}
         {% assign sublinks = entry.sublinks %}
   {% for sublink in sublinks %}
-                <div> {{ sublink.meta }} </div>
-                <li><a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a></li>
+    <div> {{ sublink.meta }} </div>
+                <a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a>
                 {% endfor %}
   {% endfor %}
   
