@@ -109,7 +109,7 @@ span {
 <div class="wrapper">
     <div class="product-img">
       <img src="{{sublink.cover}}" height="210" width="250">
-    </div>
+  </div>
     <div class="product-info">
       <div class="product-text">
         
@@ -118,8 +118,8 @@ span {
                 
    {% endfor %}
   {% endfor %}
-     </div>
-   </div>
+</div>
+</div>
 </div>
 
 
