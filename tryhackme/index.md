@@ -13,7 +13,6 @@ body {
 
 .wrapper {
   height: 210px;
-  width: 1000px;
   margin: 50px auto;
   border-radius: 7px 7px 7px 7px;
   /* VIA CSS MATIC https://goo.gl/cIbnS */
