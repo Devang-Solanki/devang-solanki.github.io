@@ -86,7 +86,9 @@ span {
 
 </style>
 
-{% for entry in site.data.others %}
+
+
+{% for entry in site.data.tryhackme %}
 {% capture fullurl %}{{ site.baseurl }}{{ entry.url }}{% endcapture %}
     {% if fullurl == page.url %}
         {% assign current_page = fullurl %}
@@ -96,8 +98,13 @@ span {
     {% endif %}
 {% endfor %}
 
-
-{% for entry in site.data.others %}
+<div class="wrapper">
+    <div class="product-img">
+      <img src="https://tryhackme-images.s3.amazonaws.com/room-icons/fcf1ff6eabd1d1e09500184b049a2e66.png" height="210" width="250">
+    </div>
+    <div class="product-info">
+      <div class="product-text">
+        {% for entry in site.data.tryhackme %}
         {% if entry.url == current_page %}
             {% assign current = ' class="current"' %}
         {% else %}
@@ -105,22 +112,12 @@ span {
             {% assign current = null %}
         {% endif %}
         {% assign sublinks = entry.sublinks %}
-
-
-{% for sublink in sublinks %}
-
-<div class="wrapper">
-<div class="product-img">
-      <img src="{{sublink.cover}}" height="210" width="250">
-</div>
-
-<div class="product-info">
-<div class="product-text">
-<h1> <a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a> </h1> 
-<p> {{ sublink.meta }} </p>
-{% endfor %}
-{% endfor %}
-
+  {% for sublink in sublinks %}
+   <h1> <a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a> </h1> 
+   <p> {{ sublink.meta }} </p>
+                
+   {% endfor %}
+  {% endfor %}
 </div>
 </div>
 </div>
