@@ -123,17 +123,19 @@ At last we have the conditions `<saml:Conditions NotBefore="2014-07-17T01:01:18Z
 
 ## Weak Points
 
+SAML might be complex, but it can be secure if properly impelmented. Lets look at some mistake that could lead to disaster.
+
 ### Flawed Validation
 
 #### Message Expiration 
-SAML messages should contain a timestamp of when the request was issued, when it expires or both. If the SAML message never expires or if the expiratioMessage Expiration: SAML messages should contain a timestamp of when the request was issued, when it expires or both. If the SAML message never expires or if the expiration is not honored, there is a greater risk of a message falling into the hands of an attacker. Check the message for timestamps, such as an IssueInstant or NotOnOrAfter assertion.n is not honored, there is a greater risk of a message falling into the hands of an attacker. Check the message for timestamps, such as an IssueInstant or NotOnOrAfter assertion.
+SAML messages should contain a timestamp of when the request was issued, when it expires or both. If the SAML message never expires a malicious user could capture the SAML response and reuse it. Check the message for timestamps, such as an IssueInstant or NotOnOrAfter assertion.
 
 #### SAML Response Forwarding
 An application should only accept a SAML response intended for the SP application. If the application does not perform this check, malicous user could pass a valid SAML response genrated for an application to another application and allow it to login. The malicous user can get a valid login for application and record it then the user can replay the same message to another application which uses the same IP and login to the that SP application.
 
 ### Flawed Signature Validation Mechanisim
 
-The SAML authentication mechanism relies on signature for maintaing its intergrity and if they are not properly implemented this can leads to bypass authentication and account takeover. SAML might be complex, but it can be secure if properly impelmented.
+The SAML authentication mechanism relies on signature for maintaing its intergrity and if they are not properly implemented this can leads to authentication bypass or account takeover. 
 
 #### Signature is not verified
 If the ACS is not verifying the signature or not checking if its exist in SAML response a malicous user could try removing the signature value from the SAML response. By simply emptying the signature field or removing the field entirely malicious user can bypass security checks.
