@@ -86,8 +86,6 @@ span {
 
 </style>
 
-
-
 {% for entry in site.data.others %}
 {% capture fullurl %}{{ site.baseurl }}{{ entry.url }}{% endcapture %}
     {% if fullurl == page.url %}
@@ -97,6 +95,8 @@ span {
         {% assign current_page = fullurl %}
     {% endif %}
 {% endfor %}
+
+
 {% for entry in site.data.others %}
         {% if entry.url == current_page %}
             {% assign current = ' class="current"' %}
@@ -105,19 +105,22 @@ span {
             {% assign current = null %}
         {% endif %}
         {% assign sublinks = entry.sublinks %}
-  {% for sublink in sublinks %}
+
+
+{% for sublink in sublinks %}
+
 <div class="wrapper">
 <div class="product-img">
       <img src="{{sublink.cover}}" height="210" width="250">
 </div>
+
 <div class="product-info">
 <div class="product-text">
-        
-   <h1> <a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a> </h1> 
-   <p> {{ sublink.meta }} </p>
-                
-   {% endfor %}
-  {% endfor %}
+<h1> <a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a> </h1> 
+<p> {{ sublink.meta }} </p>
+{% endfor %}
+{% endfor %}
+
 </div>
 </div>
 </div>
