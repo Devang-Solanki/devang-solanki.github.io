@@ -78,54 +78,12 @@ body {
   overflow: hidden;
 }
 
-.product-price-btn {
-  height: 103px;
-  width: 327px;
-  margin-top: 17px;
-  position: relative;
-}
-
-.product-price-btn p {
-  display: inline-block;
-  position: absolute;
-  top: -13px;
-  height: 50px;
-  font-family: 'Trocchi', serif;
-  margin: 0 0 0 38px;
-  font-size: 28px;
-  font-weight: lighter;
-  color: #474747;
-}
 
 span {
   display: inline-block;
   height: 50px;
   font-family: 'Suranna', serif;
   font-size: 34px;
-}
-
-.product-price-btn button {
-  float: right;
-  display: inline-block;
-  height: 50px;
-  width: 176px;
-  margin: 0 40px 0 16px;
-  box-sizing: border-box;
-  border: transparent;
-  border-radius: 60px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #ffffff;
-  background-color: #9cebd5;
-  cursor: pointer;
-  outline: none;
-}
-
-.product-price-btn button:hover {
-  background-color: #79b0a1;
 }
 
 </style>
