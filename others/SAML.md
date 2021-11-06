@@ -5,8 +5,6 @@ title: SAML 101
 author: Devang-Solanki
 ---
 
-# SAML 101
-
 Before diving deep into SAML we must understand Single Sign-On is.
 
 ## What Is Single Sign-On
