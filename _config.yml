@@ -2,7 +2,7 @@ title: CTF Writeups
 description: Writeups for CTF and blogs on security topic.
 show_downloads: false
 url: https://devang-solanki.github.io/
-theme: jekyll-theme-hacker
+theme: jekyll-theme-slate
 
 github:
   is_project_page: false
