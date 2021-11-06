@@ -1,7 +1,7 @@
 title: CTF Writeups
-description: Writeups for CTF.
+description: Writeups for CTF and blogs on security topic.
 show_downloads: false
-url: https://devang-solanki.github.io/writeups/tryhackme/haskhell
+url: https://devang-solanki.github.io/writeups/
 theme: jekyll-theme-hacker
 
 github:
