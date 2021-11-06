@@ -12,8 +12,6 @@ If you have any questions or ideas to extend this blog, feel free to contact me 
 hogya
 
 {% include navigation.html  %}
- {% for post in site.posts limit : 5 %}
-    {% endfor %}
 
 Best regards,\
 Devang
