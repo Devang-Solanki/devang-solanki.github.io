@@ -3,4 +3,4 @@
   sublinks:
     - title: SAML 101
       url: /others/SAML
-      meta: SAML stands for Security Assertion Markup Language. It is a standard commonly used Single Sign-On (SSO). It is an XML-based open-standard for transferring identity data or authorization credentials between two parties: an identity provider (IdP) and a service provider (SP).
+      meta: "SAML stands for Security Assertion Markup Language. It is a standard commonly used Single Sign-On (SSO). It is an XML-based open-standard for transferring identity data or authorization credentials between two parties: an identity provider (IdP) and a service provider (SP)."
