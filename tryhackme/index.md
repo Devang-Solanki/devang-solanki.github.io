@@ -10,7 +10,7 @@
     {% endif %}
 {% endfor %}
 
-<div>
+
   
       {% for entry in site.data.navigation %}
         {% if entry.url == current_page %}
@@ -21,17 +21,14 @@
         {% endif %}
         {% assign sublinks = entry.sublinks %}
   
-       <li{{ current }}>
+     
          
                 {% for sublink in sublinks %}
-                <div> {{sublink.meta}} </div>
+                <div> {{ sublink.meta }} </div>
                 <li><a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a></li>
                 {% endfor %}
-            </ul>
-        </li>
-        {% else %}
-        <li{{ current }}><a href="{{ site.baseurl }}{{ entry.url }}">{{ entry.title }}</a></li>
-        {% endif %}
+        
+      
     {% endfor %}
   
-</div>
+
