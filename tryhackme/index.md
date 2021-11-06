@@ -7,6 +7,16 @@
 * Chronicle Display Roman font was substituted for similar fonts from Google Fonts.
 */
 
+//CSS
+.visibledevice {display:none;}
+.visibledesktop {display:display;}
+
+@media (max-width : 320px) {
+    .visibledevice {display:block;}
+    .visibledesktop {display:none;}
+}
+  
+  
 body {
   background-color: #fdf1ec;
 }
