@@ -1,0 +1,7 @@
+- title: Tryhackme
+  url: /tryhackme/
+  sublinks:
+    - title: Haskhell
+      url: /tryhackme/haskhell
+      meta: Teach your CS professor that his PhD isn't in security.
+      
