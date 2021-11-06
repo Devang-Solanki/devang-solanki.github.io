@@ -12,8 +12,8 @@ body {
 }
 
 .wrapper {
-  height: 420px;
-  width: 654px;
+  height: 210px;
+  width: 1000px;
   margin: 50px auto;
   border-radius: 7px 7px 7px 7px;
   /* VIA CSS MATIC https://goo.gl/cIbnS */
@@ -24,8 +24,8 @@ body {
 
 .product-img {
   float: left;
-  height: 420px;
-  width: 327px;
+  height: 210px;
+  width: 250px;
 }
 
 .product-img img {
@@ -34,8 +34,8 @@ body {
 
 .product-info {
   float: left;
-  height: 420px;
-  width: 327px;
+  height: 210px;
+  width: 750px;
   border-radius: 0 7px 10px 7px;
   background-color: #ffffff;
 }
