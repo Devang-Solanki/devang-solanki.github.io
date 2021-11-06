@@ -1,4 +1,5 @@
 ---
+layout: default
 title: CTF Writeups
 published: true
 ---
