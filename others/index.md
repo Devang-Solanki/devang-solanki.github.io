@@ -88,7 +88,7 @@ span {
 
 
 
-{% for entry in site.data.tryhackme %}
+{% for entry in site.data.others %}
 {% capture fullurl %}{{ site.baseurl }}{{ entry.url }}{% endcapture %}
     {% if fullurl == page.url %}
         {% assign current_page = fullurl %}
@@ -104,7 +104,7 @@ span {
     </div>
     <div class="product-info">
       <div class="product-text">
-        {% for entry in site.data.tryhackme %}
+        {% for entry in site.data.others %}
         {% if entry.url == current_page %}
             {% assign current = ' class="current"' %}
         {% else %}
