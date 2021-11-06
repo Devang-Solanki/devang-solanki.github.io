@@ -1,1 +1,37 @@
 {% include navigation.html %}
+
+{% for entry in site.data.tryhackme %}
+{% capture fullurl %}{{ site.baseurl }}{{ entry.url }}{% endcapture %}
+    {% if fullurl == page.url %}
+        {% assign current_page = fullurl %}
+        {% break %}
+    {% elsif page.url contains fullurl %}
+        {% assign current_page = fullurl %}
+    {% endif %}
+{% endfor %}
+
+<div>
+  
+      {% for entry in site.data.navigation %}
+        {% if entry.url == current_page %}
+            {% assign current = ' class="current"' %}
+        {% else %}
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            {% assign current = null %}
+        {% endif %}
+        {% assign sublinks = entry.sublinks %}
+  
+       <li{{ current }}>
+         
+                {% for sublink in sublinks %}
+                <div> {{sublink.meta}} </div>
+                <li><a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% else %}
+        <li{{ current }}><a href="{{ site.baseurl }}{{ entry.url }}">{{ entry.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+  
+</div>
