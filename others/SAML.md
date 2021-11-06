@@ -129,7 +129,7 @@ At last we have the conditions `<saml:Conditions NotBefore="2014-07-17T01:01:18Z
 SAML messages should contain a timestamp of when the request was issued, when it expires or both. If the SAML message never expires or if the expiratioMessage Expiration: SAML messages should contain a timestamp of when the request was issued, when it expires or both. If the SAML message never expires or if the expiration is not honored, there is a greater risk of a message falling into the hands of an attacker. Check the message for timestamps, such as an IssueInstant or NotOnOrAfter assertion.n is not honored, there is a greater risk of a message falling into the hands of an attacker. Check the message for timestamps, such as an IssueInstant or NotOnOrAfter assertion.
 
 #### SAML Response Forwarding
-An application should only accept a SAML response intended for the SP application. If the application does not perform this check, malicous user could pass a valid SAML response genrated for an application to another application and allow it to login. The malicous user can get a valid login for application and record it then the user can replay the same message to anothe application which uses the same IP, login to the that SP application.
+An application should only accept a SAML response intended for the SP application. If the application does not perform this check, malicous user could pass a valid SAML response genrated for an application to another application and allow it to login. The malicous user can get a valid login for application and record it then the user can replay the same message to another application which uses the same IP and login to the that SP application.
 
 ### Flawed Signature Validation Mechanisim
 
