@@ -19,7 +19,7 @@
         {% endif %}
         {% assign sublinks = entry.sublinks %}
   {% for sublink in sublinks %}
-   <h3> <a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a> </h3> 
+   <h1> <a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a> </h1> 
     {{ sublink.meta }} 
                 
                 {% endfor %}
