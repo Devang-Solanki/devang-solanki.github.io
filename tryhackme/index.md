@@ -35,7 +35,7 @@ body {
   float: left;
   height: 210px;
   width: 750px;
-  border-radius: 0 7px 0 7px;
+  border-radius: 0 7px 7px 0;
   background-color: #ffffff;
 }
 
