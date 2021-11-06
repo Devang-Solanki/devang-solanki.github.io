@@ -1,0 +1,9 @@
+- title: Others
+  url: /others/
+  sublinks:
+    - title: SAML 101
+      url: /others/SAML
+      meta: SAML stands for Security Assertion Markup Language. It is a standard commonly used Single Sign-On (SSO). It is an XML-based open-standard for transferring identity data or authorization credentials between two parties: an identity provider (IdP) and a service provider (SP).
+    - title: H@ctivityCon 2021
+      url: /others/hacktivityCon
+      meta: H@cktivityCon is a conference organised by Hackerone everyear. This was my first ever conference and CTF competition. Even though I had little experience with CTF (Mostly from Tryhackme) I had difficulty solving many problems. I was able to solve some entry level challenge. Here are some writeups for H@ctivityCon CTF which i was able to solve.
