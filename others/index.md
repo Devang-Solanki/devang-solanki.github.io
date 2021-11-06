@@ -107,11 +107,11 @@ span {
         {% assign sublinks = entry.sublinks %}
   {% for sublink in sublinks %}
 <div class="wrapper">
-    <div class="product-img">
+<div class="product-img">
       <img src="{{sublink.cover}}" height="210" width="250">
-  </div>
-    <div class="product-info">
-      <div class="product-text">
+</div>
+<div class="product-info">
+<div class="product-text">
         
    <h1> <a href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a> </h1> 
    <p> {{ sublink.meta }} </p>
