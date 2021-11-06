@@ -11,7 +11,7 @@
 {% endfor %}
 
 <div>
-{% for entry in site.data.navigation %}
+{% for entry in site.data.tryhackme %}
         {% if entry.url == current_page %}
             {% assign current = ' class="current"' %}
         {% else %}
