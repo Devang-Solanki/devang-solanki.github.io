@@ -102,7 +102,7 @@ span {
 
 <div class="wrapper">
     <div class="product-img">
-      <img src="https://tryhackme-images.s3.amazonaws.com/room-icons/fcf1ff6eabd1d1e09500184b049a2e66.png" height="420" width="327">
+      <img src="https://tryhackme-images.s3.amazonaws.com/room-icons/fcf1ff6eabd1d1e09500184b049a2e66.png" height="210" width="250">
     </div>
     <div class="product-info">
       <div class="product-text">
