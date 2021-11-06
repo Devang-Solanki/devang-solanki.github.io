@@ -10,6 +10,7 @@
     {% endif %}
 {% endfor %}
 
+<div>
 {% for entry in site.data.navigation %}
         {% if entry.url == current_page %}
             {% assign current = ' class="current"' %}
@@ -26,4 +27,4 @@
       
    {% endfor %}
   
-
+</div>
