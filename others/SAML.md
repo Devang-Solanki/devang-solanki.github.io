@@ -1,3 +1,10 @@
+---
+layout: post
+date: 2021-11-2 -0500
+title: SAML 101
+author: Devang-Solanki
+---
+
 # SAML 101
 
 Before diving deep into SAML we must understand Single Sign-On is.
@@ -12,6 +19,8 @@ SAML stands for Security Assertion Markup Language. It is a standard commonly us
 **Identity Provider (IDP)** — Performs authentication and passes the user's identity and authorization level to the service provider.
 
 **Service Provider (SP)** — Trusts the identity provider and authorizes the given user to access the requested resource.
+
+Example :- Suppose you want to use Gmail, Hangouts and Google Docs we can call them service provider. Sigining into all of them separately and remmebering passwords for all of them seems very annoying. So, to solve this problem we will use SAML. Where we will only provide credentials to one Identity Provider in this case it would be Google and that IDP will allow us to login into Gmail, Hangouts and Google Docs without providing any credentials to them.
 
 SAML implements a secure method of passing user authentications and authorizations between the identity provider and service providers. When a user logs into a SAML enabled application, the service provider requests authorization from the appropriate identity provider. The identity provider authenticates the user’s credentials and then returns the authorization for the user to the service provider, and the user is now able to use the application.
 
@@ -161,7 +170,7 @@ NameID
 |_ Comment: Here lies the problem
 |_ Text: .evil.com
 ```
-In second case the comment tricked the xml parser into stoping at that comment and the service provider would thought the user was just devangsolanki@gamil.com beacuse it failed to notice .evil.com. 
+In second case the comment tricked the XML parser into stoping at that comment and the service provider would thought the user was just devangsolanki@gamil.com beacuse it failed to notice .evil.com. 
 
 A malicious user could leverage this problem and can create a account very similar to a admin account like admin@business.com.evil.co and can modify SAML assertions to change the NameID to admin@business.com when processed by the SP. By adding simple comment into the SAML response malicous user can now access admin account with this simple payload
 ```XML
