@@ -11,6 +11,8 @@
 - title: Others
   url: /others/
   sublinks:
+    - title: 0 Click Account Takeover
+      url: others/0_c_account_takeover
     - title: H@ctivityCon 2021
       url: /others/hacktivityCon
     - title: SAML 101
