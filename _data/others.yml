@@ -7,3 +7,6 @@
     - title: H@ctivityCon 2021
       url: /others/hacktivityCon
       meta: "H@cktivityCon is a conference organised by Hackerone everyear. This was my first ever conference and CTF competition. Even though I had little experience with CTF (Mostly from Tryhackme) I had difficulty solving many problems. I was able to solve some entry level challenge. Here are some writeups for H@ctivityCon CTF which i was able to solve."
+    - title: 0_c_account_takeover.md
+      url: /others/0_c_account_takeover
+      meta: "So, this is my first writeup on a bug which i found on a private program on hackerone and also my first critical bug."
