@@ -36,7 +36,7 @@ Te: trailers
 
 In the above request the visitor_id parameter caught my attention and I tried to figure out, what the heck is this. On looking at the request closely in burp, i found that it's one of the cookie values. By testing I found out that this cookie is being assigned to browser and is being tied with login session of the user. One browser had only one visitor_id and different browser had different. 
 
-When I forwarded the request, I got one magic link in my mail, and when I clicked on it, I got logged in to a different account. Weird no!! After looking around I found the reason as I was using firefox multi-container, I had two accounts running on the same browser with same visitor_id. So I thought what if I change visitor_id with the one where the an account is already logged in. On doing this I was able to login to that account.
+When I forwarded the request, I got one magic link in my mail, and when I clicked on it, I got logged in to a different account. Weird no!! After looking around I found the reason as I was using firefox multi-container, I had two accounts running on the same browser with same visitor_id. So I thought what if I change visitor_id with the one where an account is already logged in. On doing this I was able to login to that account.
 
 Since the visitor_id parameter was very long, I couldn't report it. But it was very guessy; for example, it always starts with "31189" and after this every thing was random, plus it does not have any rate limit enforced, so I was able to bruteforce visitor_id and could be able to login to any random account via the magic link sent to my email.
 
