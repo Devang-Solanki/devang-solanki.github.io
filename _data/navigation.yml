@@ -17,3 +17,5 @@
       url: /others/hacktivityCon
     - title: SAML 101
       url: /others/SAML
+    - title: Exploiting Graphql for fun and bounties
+      url: /others/graphql
