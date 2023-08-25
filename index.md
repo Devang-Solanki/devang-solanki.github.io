@@ -1,6 +1,6 @@
 ---
 layout: default
-title: CTF Writeups
+title: Random Security Shit
 published: true
 ---
 
