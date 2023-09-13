@@ -10,3 +10,6 @@
     - title: 0 Click Account Takeover
       url: /others/0_c_account_takeover
       meta: "So, this is my first writeup on a bug which i found on a private program on hackerone and also my first critical bug."
+    - title: Exploiting Graphql for Fun and Bounties
+      url: /others/graphql
+      meta: "GraphQL is a query language that allows you to request data from a server. Instead of getting a fixed set of data, like in traditional APIs, you can send a query to the server specifying exactly what data you need. You define the structure of the data you want and the server responds with that specific data, nothing more and nothing less."
