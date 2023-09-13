@@ -19,3 +19,8 @@
       url: /others/SAML
     - title: Exploiting Graphql for Fun and Bounties
       url: /others/graphql
+- title: Useless Tools
+  url: /useless-tools/
+  sublinks:
+    - title: XSS Paylod Tester
+    - url: /useless-tools/script-eval
