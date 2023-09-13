@@ -23,4 +23,4 @@
   url: /useless-tools/
   sublinks:
     - title: XSS Paylod Tester
-    - url: /useless-tools/script-eval.html
+      url: /useless-tools/script-eval.html
