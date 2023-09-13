@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Payload Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/material-darker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/elegant.min.css" >
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="script-box">
+        <div id="title-container">
+            <h1 id="title">XSS Payload Test</h1>
+            <button id="bin-toggle"><p id="binIcon">🗑️</p></button>
+            <button id="theme-toggle">
+              <p id="themeIcon">🌞</p>
+            </button>
+          </div>
+        <div class="editor">
+            <div id="code" placeholder="Enter your JavaScript code here..."></div>
+            <button id="run-button">Run</button>
+        </div>
+        <div class="output" id="output-box">
+            <iframe id="output-iframe" sandbox="allow-scripts allow-same-origin allow-modals"></iframe>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
