@@ -54,7 +54,7 @@ Extract the Frida Server using a tool you like. I used WSL. Then, use ADB to pus
 
 Next, use the ADB shell to access the emulator and initiate the Frida server.
 
-![pushing frida emulator](/assets/images/SSL_Unpinning/pushing_frida_emulator.png)
+![pushing frida emulator](/assets/images/SSL_Unpinning/running_frida_server.png)
 
 To confirm that the Frida server is running properly, enter this command: `frida-ps -U`
 
