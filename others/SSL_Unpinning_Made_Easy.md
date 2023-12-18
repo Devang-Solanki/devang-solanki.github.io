@@ -13,7 +13,7 @@ Burp Suite operates with two distinct SSL sessions:
 1. **SSL Session with the Client (Your Device):** Burp Suite generates its SSL certificate, which is installed on your device. This creates an SSL session between Burp Suite (acting as a proxy) and your device. This session enables Burp Suite to intercept and decrypt the HTTPS traffic sent from your device.
 2. **SSL Session with the Server (Website or Application):** Simultaneously, Burp Suite initiates a separate SSL session with the destination server (website or application). It creates a secure connection using the server's SSL certificate to ensure that the intercepted data can be forwarded securely after inspection or modification.
 
-![](https://github.com/Devang-Solanki/devang-solanki.github.io/blob/gh-pages/assets/images/SSL_Unpinning/burpsuite-working.png)
+![burpsuite working](/assets/images/SSL_Unpinning/burpsuite-working.png)
 ## What is SSL Pinning
 
 SSL pinning is a security technique used by apps to prevent unauthorized interception of their HTTPS traffic, aiming to enhance security by ensuring that communication occurs only with specific trusted servers.
@@ -29,7 +29,7 @@ Now that we know why it's important to disable SSL Pinning in apps, let's explor
 ## Disabling SSL Pinning on Blinkit
 In this demonstration, we'll attempt to disable SSL Pinning in an APK of Blinkit. I'll use an emulator from Android Studio, and I have installed Android 13 on the emulator device.  
 
-![](https://github.com/Devang-Solanki/devang-solanki.github.io/blob/gh-pages/assets/images/SSL_Unpinning/android_emulator.png)
+![android emulator](/assets/images/SSL_Unpinning/android_emulator.png)
 To bypass SSL Pinning, we'll use Frida. First, install Frida on your device by running these commands:
 ```
 pip install frida-tools
@@ -37,29 +37,29 @@ pip install frida-tools
 pip install frida
 ```
 To check if it's installed properly, use `frida --version`.
-![](https://github.com/Devang-Solanki/devang-solanki.github.io/blob/gh-pages/assets/images/SSL_Unpinning/frida_version_check.png)
+![frida version check](/assets/images/SSL_Unpinning/frida_version_check.png)
 Remember this version number; it's crucial for downloading the matching Frida server. Head to the Frida release page at `https://github.com/frida/frida/releases/` and get the Frida server that matches your Frida version and your Android emulator's architecture.
 
 In my situation, my Frida version was 16.1.8, and I needed the x86 architecture. So, I downloaded the highlighted Frida-Server shown in the image below.
-![](https://github.com/Devang-Solanki/devang-solanki.github.io/blob/gh-pages/assets/images/SSL_Unpinning/frida_server_download.png)
+![frida server download](/assets/images/SSL_Unpinning/frida_server_download.png)
 Extract the Frida Server using a tool you like. I used WSL. Then, use ADB to push it into your Android emulator using the below command.
 
-![](https://bugbase.s3.ap-south-1.amazonaws.com/bugbase-blogs/SSL%20Unpinning/pushing_frida_emulator.png)
+![pushing frida emulator](/assets/images/SSL_Unpinning/pushing_frida_emulator.png)
 Next, use the ADB shell to access the emulator and initiate the Frida server.
 
-![](https://github.com/Devang-Solanki/devang-solanki.github.io/blob/gh-pages/assets/images/SSL_Unpinning/pushing_frida_emulator.png)
+![pushing frida emulator](/assets/images/SSL_Unpinning/pushing_frida_emulator.png)
 To confirm that the Frida server is running properly, enter this command: `frida-ps -U`
 
 Now that Frida is set up, open Burp Suite and set it up to listen on your network and export the CA certificate from Burp Suite's proxy settings.
-![](https://github.com/Devang-Solanki/devang-solanki.github.io/blob/gh-pages/assets/images/SSL_Unpinning/burp_proxy_settings.png)
+![burp proxy settings](/assets/images/SSL_Unpinning/burp_proxy_settings.png)
 Next, clone this repository on your device: `https://github.com/httptoolkit/frida-interception-and-unpinning`. This repo by [HTTP toolkit](https://httptoolkit.com/) contains Frida scripts designed to do everything required for fully automated HTTPS MitM interception on mobile devices.
 
 Open the "config.js" file in the downloaded repository. You need to add some information there, like the CA certificate in PEM format and the details of our listeners. You get your listener details from proxy settings.
 
 Burp Suite usually exports the CA certificate in a format called DER. To convert it into PEM format, use a tool available at `http://lapo.it/asn1js/`. Upload your CA certificate there, and it'll give you the CA certificate in PEM format. Then, add this PEM-formatted certificate to the "config.js" file.
-![](https://github.com/Devang-Solanki/devang-solanki.github.io/blob/gh-pages/assets/images/SSL_Unpinning/convert_der_to_pem.png)
+![convert der to pem](/assets/images/SSL_Unpinning/convert_der_to_pem.png)
 Once you've added your PEM certificate, your config file should look similar to the image below
-![](https://github.com/Devang-Solanki/devang-solanki.github.io/blob/gh-pages/assets/images/SSL_Unpinning/config_file.png)
+![config file](/assets/images/SSL_Unpinning/config_file.png)
 Now, execute the following command:
 ```
 frida -U -l ./config.js -l ./native-connect-hook.js -l ./android/android-proxy-override.js -l ./android/android-system-certificate-injection.js -l ./android/android-certificate-unpinning.js -l ./android/android-certificate-unpinning-fallback.js -f com.grofers.customerapp
@@ -69,4 +69,4 @@ This command hooks all the necessary agents to bypass SSL pinning. Using the `-f
 
 This command will spawn the blinkit app and you'll observe its requests appearing in the Burp Suite history tab.
 
-![](https://github.com/Devang-Solanki/devang-solanki.github.io/blob/gh-pages/assets/images/SSL_Unpinning/intercepting_request.png)
+![intercepting request](/assets/images/SSL_Unpinning/intercepting_request.png)
