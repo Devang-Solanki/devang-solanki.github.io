@@ -19,6 +19,8 @@
       url: /others/SAML
     - title: Exploiting Graphql for Fun and Bounties
       url: /others/graphql
+    - title: SSL Unpinning Made Easy
+      url: /others/SSL_Unpinning_Made_Easy
 - title: Useless Tools
   url: /useless-tools/
   sublinks:
