@@ -23,7 +23,7 @@ func  main() {
 ```
 [Try on Playground](https://go.dev/play/p/xK6JNyli-AN)
 
-You may notice that the line `fmt.Println("I'm a simple Goroutine")` inside the Goroutine function never gets executed. Why? As I mentioned earlier, Goroutines detach themselves from the main function. Therefore, when the main function finishes its execution, all Goroutines also stop executing, leading to the program's premature exit. However, if you add a small delay, as shown above, you will observe that our Goroutine gets executed.
+You may notice that the line `fmt.Println("I'm a simple Goroutine")` inside the Goroutine function never gets executed. Why? As I mentioned earlier, Goroutines detach themselves from the main function. Therefore, when the main function finishes its execution, all Goroutines also stop executing, leading to the program's premature exit. However, if you add a small delay, as shown below, you will observe that our Goroutine gets executed.
 ```go
 package main
 
@@ -50,13 +50,14 @@ While in the above code, we added a time delay to prevent the program from exiti
 ### What are the Waitgroups in Golang?
 As the name suggests, WaitGroups in Golang allow us to wait for all our Goroutines to finish their execution before the program completes.
 
-In Golang, the WaitGroup is a part of the standard package and can be imported from the `sync` package. Here are the methods provided by WaitGroups:
+In Golang, the WaitGroup is a part of the standard package and can be imported from the `sync` package. 
 
+Here are the methods provided by WaitGroups:
 - **Add**: The WaitGroup functions as a counter, keeping track of the number of functions or Goroutines to wait for. When the counter reaches 0, the WaitGroup releases the Goroutines.
 - **Wait**: This method blocks the execution of the application until the WaitGroup counter becomes 0.
 - **Done**: It decrements the WaitGroup counter by a value of 1.
 
-Lets use Waitgroups in our previous example:
+Solving our problem with Waitgroups:
 ```go
 package main
 
@@ -90,7 +91,7 @@ Finally, we use `wg.Wait()` to make the main function wait for all Goroutines to
 
 Compared to the previous solution using `time.Sleep`, which involved an arbitrary time delay to ensure the main function doesn't finish execution before the Goroutines are done, using WaitGroup allows the main function to wait for all Goroutines to complete their execution.
 
-### What Makes Goroutines a Good Fit for Security Automation
+### What Makes Goroutines a Good Fit for Security Automation?
 Goroutines provide significant benefits for building performant and scalable security tools. As lightweight threads of execution, goroutines enable concurrent operations and parallelism without the overhead of operating system threads. This allows security tools written in Go to handle many simultaneous tasks, connections, and requests efficiently.
 
 If you were to develop a tool that retrieves subdomains from two sources, where one source takes approximately 8 seconds and the other takes 4 seconds to fetch subdomains domains, running the tool without utilizing goroutines and waitgroups would result in a total execution time of 12 seconds. However, with goroutines and waitgroups you can complete the task in 8 seconds..
