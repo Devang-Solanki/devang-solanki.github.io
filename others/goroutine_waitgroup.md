@@ -57,7 +57,7 @@ In Golang, the WaitGroup is a part of the standard package and can be imported f
 - **Done**: It decrements the WaitGroup counter by a value of 1.
 
 Lets use Waitgroups in our previous example:
-```GO
+```go
 package main
 
 import (
