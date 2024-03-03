@@ -16,6 +16,6 @@
     - title: "SSL Unpinning Made Easy"
       url: /others/SSL_Unpinning_Made_Easy
       meta: "In this blog, we’ll explore a simple way to disable SSL pinning in Android apps. But first, let’s break down how BurpSuite intercepts HTTPS Traffic, ensuring that beginners can follow along with what we’re discussing."
-    - title: "WTF is a Goroutine and Wait Groups?"
+    - title: "Managing Concurrent Tasks with Goroutines and WaitGroups"
       url: /others/goroutine_waitgroup
       meta: "In this blog, we explore the efficiency of Golang's Goroutines and Waitgroups and how these can help write faster code."

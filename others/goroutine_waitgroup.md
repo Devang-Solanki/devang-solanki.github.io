@@ -1,4 +1,4 @@
-## WTF is a Goroutine and Wait Groups?
+## Managing Concurrent Tasks with Goroutines and WaitGroups
 
 According to the official Go documentation, "A _goroutine_ is a lightweight thread managed by the Go runtime."
 
@@ -82,6 +82,7 @@ func  main() {
 	wg.Wait()
 }
 ```
+[Try on Playground](https://go.dev/play/p/StdE1W4o6PP)
 
 Let's break down this code. In the `main` function, we declare a WaitGroup named `wg` using `var wg sync.WaitGroup`. We then add one counter to the WaitGroup using `wg.Add(1)` and pass a _pointer_ to `wg` in our `goroutines` function.
 

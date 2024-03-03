@@ -21,7 +21,7 @@
       url: /others/graphql
     - title: SSL Unpinning Made Easy
       url: /others/SSL_Unpinning_Made_Easy
-    - title: "WTF is a Goroutine and Wait Groups?"
+    - title: "Managing Concurrent Tasks with Goroutines and WaitGroups"
       url: /others/goroutine_waitgroup
 - title: Useless Tools
   url: /useless-tools/
