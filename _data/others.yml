@@ -13,6 +13,9 @@
     - title: Exploiting Graphql for Fun and Bounties
       url: /others/graphql
       meta: "GraphQL is a query language that allows you to request data from a server. Instead of getting a fixed set of data, like in traditional APIs, you can send a query to the server specifying exactly what data you need. You define the structure of the data you want and the server responds with that specific data, nothing more and nothing less."
-    - title: SSL Unpinning Made Easy
+    - title: "SSL Unpinning Made Easy"
       url: /others/SSL_Unpinning_Made_Easy
       meta: "In this blog, we’ll explore a simple way to disable SSL pinning in Android apps. But first, let’s break down how BurpSuite intercepts HTTPS Traffic, ensuring that beginners can follow along with what we’re discussing."
+    - title: "WTF is a Goroutine and Wait Groups?"
+      url: /others/goroutine_waitgroup
+      meta: "In this blog, we explore the efficiency of Golang's Goroutines and Waitgroups and how these can help write faster code."
