@@ -49,8 +49,9 @@ header h1 {
 a {
   font-family: 'Space Grotesk', sans-serif; // Apply the font to all links
   /* Additional styles for links if desired */
-  color: #007bff; // Change link color as an example
+  color: inherit;  // Change link color as an example  
   text-decoration: underline;
+  text-decoration-style: dotted;
 }
 
 a:hover {
