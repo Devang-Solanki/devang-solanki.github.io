@@ -1,8 +1,5 @@
 # Belongs at: /_data/navigation.yml
 
-- title: Home
-  url: /
-
 - title: Bug Bounty
   url: /bugbounty/
   sublinks:
