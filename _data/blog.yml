@@ -1,0 +1,15 @@
+- title: Blogs
+  url: /blogs/
+  sublinks:
+    - title: "SSL Unpinning Made Easy"
+      url: /others/SSL_Unpinning_Made_Easy
+      meta: "In this blog, we’ll explore a simple way to disable SSL pinning in Android apps. But first, let’s break down how BurpSuite intercepts HTTPS Traffic, ensuring that beginners can follow along with what we’re discussing."
+    - title: "Managing Concurrent Tasks with Goroutines and WaitGroups"
+      url: /others/goroutine_waitgroup
+      meta: "In this blog, we explore the efficiency of Golang's Goroutines and Waitgroups and how these can help write faster code."
+    - title: SAML 101
+      url: /others/SAML
+      meta: "SAML stands for Security Assertion Markup Language. It is a standard commonly used Single Sign-On (SSO). It is an XML-based open-standard for transferring identity data or authorization credentials between two parties: an identity provider (IdP) and a service provider (SP)."
+    - title: Exploiting Graphql for Fun and Bounties
+      url: /others/graphql
+      meta: "GraphQL is a query language that allows you to request data from a server. Instead of getting a fixed set of data, like in traditional APIs, you can send a query to the server specifying exactly what data you need. You define the structure of the data you want and the server responds with that specific data, nothing more and nothing less."
