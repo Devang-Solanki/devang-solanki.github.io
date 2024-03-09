@@ -1,6 +1,6 @@
 ---
 layout: default
-title: knowledge.txt
+title: Home
 published: true
 ---
 
