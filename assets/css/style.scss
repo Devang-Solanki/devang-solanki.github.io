@@ -46,6 +46,10 @@ header h1 {
   color: #6420AA;
 }
 
+header {
+  border-bottom: dashed;
+}
+
 a {
   font-family: 'Space Grotesk', sans-serif; // Apply the font to all links
   /* Additional styles for links if desired */
