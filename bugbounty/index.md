@@ -1,4 +1,4 @@
-{% for entry in site.data.writeup %}
+{% for entry in site.data.bugbounty %}
 {% capture fullurl %}{{ site.baseurl }}{{ entry.url }}{% endcapture %}
     {% if fullurl == page.url %}
         {% assign current_page = fullurl %}

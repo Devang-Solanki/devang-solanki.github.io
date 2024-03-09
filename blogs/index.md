@@ -1,4 +1,4 @@
-{% for entry in site.data.others %}
+{% for entry in site.data.blog %}
 {% capture fullurl %}{{ site.baseurl }}{{ entry.url }}{% endcapture %}
     {% if fullurl == page.url %}
         {% assign current_page = fullurl %}
