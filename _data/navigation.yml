@@ -30,7 +30,7 @@
       url: /others/hacktivityCon
 
 - title: Tools
-  url: /tools/
+  url: /
   sublinks:
     - title: XSS Paylod Tester
-      url: /useless-tools/script-eval.html
+      url: /tools/script-eval.html

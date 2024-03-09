@@ -8,7 +8,7 @@
     {% endif %}
 {% endfor %}
 
-{% for entry in site.data.tryhackme %}
+{% for entry in site.data.writeup %}
         {% if entry.url == current_page %}
             {% assign current = ' class="current"' %}
         {% else %}

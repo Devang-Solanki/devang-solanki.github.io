@@ -8,7 +8,7 @@
     {% endif %}
 {% endfor %}
 
-{% for entry in site.data.others %}
+{% for entry in site.data.blog %}
         {% if entry.url == current_page %}
             {% assign current = ' class="current"' %}
         {% else %}
