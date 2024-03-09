@@ -20,6 +20,23 @@ body {
   font-style: normal;
 }
 
+h1,
+h2 {
+  font-family: 'Space Grotesk', sans-serif; // Apply the font to h1 and h2
+  font-weight: normal; // You can adjust the font-weight if needed
+}
+
+/* Additional styles for h1 and h2 if desired */
+h1 {
+  font-size: 2em;
+  color: #ff6600;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #00cc66;
+}
+
 @media (prefers-color-scheme: light) {
   body {
     /*
