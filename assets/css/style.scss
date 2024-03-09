@@ -50,7 +50,7 @@ a {
   font-family: 'Space Grotesk', sans-serif; // Apply the font to all links
   /* Additional styles for links if desired */
   color: #007bff; // Change link color as an example
-  text-decoration: none; // Remove default underline
+  text-decoration: underline;
 }
 
 a:hover {
