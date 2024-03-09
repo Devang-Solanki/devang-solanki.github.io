@@ -15,10 +15,10 @@ Devang
 
 
 <div class="flex-center">
-  <a herf="https://twitter.com/devangsolankii"><i class="fa fa-twitter fa-4x icon-3d"></i></a>
-  <a herf="https://github.com/Devang-Solanki"><i class="fa fa-github fa-4x icon-3d"></i></a>
-  <a herf="https://www.instagram.com/devangsolanki_"><i class="fa fa-instagram fa-4x icon-3d"></i></a>
-  <a herf="https://www.linkedin.com/in/devangdsolanki/"><i class="fa fa-linkedin fa-4x icon-3d"></i></a>
+  <a href="https://twitter.com/devangsolankii"><i class="fa fa-twitter fa-4x icon-3d"></i></a>
+  <a href="https://github.com/Devang-Solanki"><i class="fa fa-github fa-4x icon-3d"></i></a>
+  <a href="https://www.instagram.com/devangsolanki_"><i class="fa fa-instagram fa-4x icon-3d"></i></a>
+  <a href="https://www.linkedin.com/in/devangdsolanki/"><i class="fa fa-linkedin fa-4x icon-3d"></i></a>
 </div>
 
 <a href="https://www.buymeacoffee.com/devangsolankii" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174" /></a>
