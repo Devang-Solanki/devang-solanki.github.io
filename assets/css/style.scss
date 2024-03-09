@@ -31,7 +31,7 @@ h4 {
 /* Additional styles for h1 and h2 if desired */
 h1 {
   font-size: 2em;
-  color: #ff6600;
+  color: #6420AA;
 }
 
 h2 {
@@ -43,7 +43,19 @@ header h1 {
   font-family: 'Space Grotesk', sans-serif; // Apply the font to h1 within the header
   /* Additional styles for header h1 if desired */
   font-size: 2.5em;
-  color: #211951;
+  color: #6420AA;
+}
+
+a {
+  font-family: 'Space Grotesk', sans-serif; // Apply the font to all links
+  /* Additional styles for links if desired */
+  color: #007bff; // Change link color as an example
+  text-decoration: none; // Remove default underline
+}
+
+a:hover {
+  text-decoration: underline; // Add underline on hover
+  color: #0056b3; // Change link color on hover
 }
 
 @media (prefers-color-scheme: light) {
