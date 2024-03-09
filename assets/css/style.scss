@@ -13,6 +13,13 @@ body {
   font: space-grotesk-1234;
 }
 
+@font-face {
+  font-family: "Space Grotesk";
+  src: url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap') format('woff2'); /* Replace 'path/to/your/font-file.woff2' with the actual path to your font file */
+  font-weight: normal;
+  font-style: normal;
+}
+
 .space-grotesk-1234 {
   font-family: "Space Grotesk", sans-serif;
   font-optical-sizing: auto;
