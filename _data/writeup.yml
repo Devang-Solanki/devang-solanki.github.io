@@ -1,11 +1,11 @@
 - title: Tryhackme
-  url: /tryhackme/
+  url: /writeup/
   sublinks:
     - title: Haskhell
-      url: /tryhackme/haskhell
+      url: /writeup/haskhell
       meta: Teach your CS professor that his PhD isn't in security.
     - title: H@ctivityCon 2021
-      url: /others/hacktivityCon
+      url: /writeup/hacktivityCon
       meta: "H@cktivityCon is a conference organised by Hackerone everyear. This was my first ever conference and CTF competition. Even though I had little experience with CTF (Mostly from Tryhackme) I had difficulty solving many problems. I was able to solve some entry level challenge. Here are some writeups for H@ctivityCon CTF which i was able to solve."
   
   

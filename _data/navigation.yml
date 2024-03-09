@@ -13,21 +13,21 @@
   url: /blogs/
   sublinks:
     - title: SSL Unpinning Made Easy
-      url: /others/SSL_Unpinning_Made_Easy
+      url: /blogs/SSL_Unpinning_Made_Easy
     - title: Managing Concurrent Tasks with Goroutines and WaitGroups
-      url: /others/goroutine_waitgroup
+      url: /blogs/goroutine_waitgroup
     - title: Exploiting Graphql for Fun and Bounties
-      url: /others/graphql
+      url: /blogs/graphql
     - title: SAML 101
-      url: /others/SAML
+      url: /blogs/SAML
 
 - title: Write Up
   url: /writeup/
   sublinks:
     - title: Haskhell
-      url: /tryhackme/haskhell
+      url: /writeup/haskhell
     - title: H@ctivityCon 2021
-      url: /others/hacktivityCon
+      url: /writeup/hacktivityCon
 
 - title: Tools
   url: /
