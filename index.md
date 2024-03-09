@@ -1,17 +1,18 @@
 ---
 layout: default
-title: Random Security Shit
+title: knowledge.txt
 published: true
 ---
 
 ## Welcome to my page
 
-Hey folks, this little blog site will include writeups of THM/HTB machines and some other topics, which are related to IT Security.\
-If you have any questions or ideas to extend this blog, feel free to contact me via THM.
+Hello everyone,
+
+I'm Devang from Surat. Welcome to my blog, where I'll be sharing what I know about security. I'm really into web and android security, and I enjoy doing bug bounties. I'm also passionate about contributing to open source projects. I'm familiar with programming languages like Go, Python, and C
 
 {% include navigation.html  %}
 
 Best regards,\
 Devang
 
-![image](https://tryhackme-badges.s3.amazonaws.com/devangsolanki.png)
+<a href="https://www.buymeacoffee.com/devangsolankii" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174" /></a>

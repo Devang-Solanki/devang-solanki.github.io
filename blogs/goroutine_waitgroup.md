@@ -1,4 +1,4 @@
-## Managing Concurrent Tasks with Goroutines and WaitGroups
+# Managing Concurrent Tasks with Goroutines and WaitGroups
 
 According to the official Go documentation, "A _goroutine_ is a lightweight thread managed by the Go runtime."
 
@@ -47,7 +47,7 @@ func  main() {
 
 While in the above code, we added a time delay to prevent the program from exiting immediately, it's not always feasible to predict the exact duration of a program's execution. To solve this problem, we can use a WaitGroup.
 
-### What are the Waitgroups in Golang?
+## What are the Waitgroups in Golang?
 As the name suggests, WaitGroups in Golang allow us to wait for all our Goroutines to finish their execution before the program completes.
 
 In Golang, the WaitGroup is a part of the standard package and can be imported from the `sync` package. 
@@ -92,7 +92,7 @@ Finally, we use `wg.Wait()` to make the main function wait for all Goroutines to
 
 Compared to the previous solution using `time.Sleep`, which involved an arbitrary time delay to ensure the main function doesn't finish execution before the Goroutines are done, using WaitGroup allows the main function to wait for all Goroutines to complete their execution.
 
-### What Makes Goroutines a Good Fit for Security Automation?
+## What Makes Goroutines a Good Fit for Security Automation?
 Goroutines provide significant benefits for building performant and scalable security tools. As lightweight threads of execution, goroutines enable concurrent operations and parallelism without the overhead of operating system threads. This allows security tools written in Go to handle many simultaneous tasks, connections, and requests efficiently.
 
 If you were to develop a tool that retrieves subdomains from two sources, where one source takes approximately 8 seconds and the other takes 4 seconds to fetch subdomains domains, running the tool without utilizing goroutines and waitgroups would result in a total execution time of 12 seconds. However, with goroutines and waitgroups you can complete the task in 8 seconds..
