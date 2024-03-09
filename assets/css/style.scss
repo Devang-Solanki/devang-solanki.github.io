@@ -5,16 +5,16 @@
 @import "{{ site.theme }}";
 
 @import "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css";
-@import "https://fonts.googleapis.com/css?family=Space Grotesk";
+@import url('https://fonts.googleapis.com/css?family=Space+Grotesk');
 
 body {
   margin: 0;
   background-color: #000000;
-  font-family: space-grotesk-1234;
+  font-family: 'Space Grotesk', sans-serif; // Use the correct font-family name
 }
 
 .space-grotesk-1234 {
-  font-family: "Space Grotesk";
+  font-family: 'Space Grotesk', sans-serif; // Use the correct font-family name
   font-weight: normal;
   font-optical-sizing: auto;
   font-style: normal;
