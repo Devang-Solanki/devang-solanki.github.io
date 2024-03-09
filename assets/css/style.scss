@@ -15,7 +15,7 @@ body {
 
 .space-grotesk-1234 {
   font-family: 'Space Grotesk', sans-serif; // Use the correct font-family name
-  font-weight: light;
+  font-weight: normal ;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -49,7 +49,7 @@ header h1 {
 a {
   font-family: 'Space Grotesk', sans-serif; // Apply the font to all links
   /* Additional styles for links if desired */
-  color: inherit;  // Change link color as an example  
+  color: #D3D3D3;  // Change link color as an example  
   text-decoration: underline;
   text-decoration-style: dotted;
 }
