@@ -4,8 +4,6 @@ title: Home
 published: true
 ---
 
-## Welcome to my page
-
 Hello everyone,
 
 I'm Devang from Surat. Welcome to my blog, where I'll be sharing what I know about security. I'm really into web and android security, and I enjoy doing bug bounties. I'm also passionate about contributing to open source projects. I'm familiar with programming languages like Go, Python, and C
