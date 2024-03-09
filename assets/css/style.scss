@@ -5,10 +5,18 @@
 @import "{{ site.theme }}";
 
 @import "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css";
+@import "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
 
 body {
   margin: 0;
   background-color: #0d1117;
+  font: space-grotesk-1234;
+}
+
+.space-grotesk-1234 {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 @media (prefers-color-scheme: light) {
@@ -24,7 +32,7 @@ body {
 @media (prefers-color-scheme: dark) {
   body {
     /* --color-canvas-default */
-    background-color: #0d1117;
+    background-color: #000000;
     background-image:none;
   }
 }
