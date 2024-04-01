@@ -15,7 +15,7 @@ Devang
 
 
 <div class="flex-center">
-  <a href="https://twitter.com/devangsolankii" target="_blank"><i class="fa fa-twitter fa-4x icon-3d"></i></a>
+  <a href="https://twitter.com/devangsolankii" target="_blank"><i class="fa fa-x-twitter fa-4x icon-3d"></i></a>
   <a href="https://github.com/Devang-Solanki" target="_blank"><i class="fa fa-github fa-4x icon-3d"></i></a>
   <a href="https://www.instagram.com/devangsolanki_" target="_blank"><i class="fa fa-instagram fa-4x icon-3d"></i></a>
   <a href="https://www.linkedin.com/in/devangdsolanki/" target="_blank"><i class="fa fa-linkedin fa-4x icon-3d"></i></a>
