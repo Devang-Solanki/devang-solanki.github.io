@@ -31,3 +31,8 @@
   sublinks:
     - title: XSS Paylod Tester
       url: /tools/script-eval.html
+- title: "Work I've Written for Others"
+  url: /
+  sublinks:
+    - title: The State of the Web
+      url: https://redhuntlabs.com/blog/wave-11-analysis-of-the-top-1-million-websites/
