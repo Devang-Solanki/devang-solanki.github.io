@@ -1,6 +1,6 @@
 - title: Blogs
-  url: /blogs/
+  url: /bugbounty/
   sublinks:
     - title: 0 Click Account Takeover
-      url: /blogs/0_c_account_takeover
+      url: /bugbounty/0_c_account_takeover
       meta: "So, this is my first writeup on a bug which i found on a private program on hackerone and also my first critical bug."
