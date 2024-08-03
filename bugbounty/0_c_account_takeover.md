@@ -46,4 +46,5 @@ I reported this bug and was expecting a good amount of bounty and slept. I repor
 After 15 days another triager from the hackerone team joined the report and asked me to reproduce the bug. So logged in to my Kali machine and tried to reproduce it, and found out that the endpoint is not behaving as expected, and it has been changed. I told the triager that it has been fixed by the team. After many days without any reply, I opted for hackerone mediation in hope of getting help, but they also couldn't help.
 
 After a month I got a reply from the team and was very disappointed by how companies treat bug bounty hunters. Below is a snapshot.
+
 ![image](/assets/images/0_c_account_takeover/chat_snapshot.jpg)
