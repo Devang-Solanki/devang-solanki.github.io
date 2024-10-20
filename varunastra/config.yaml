@@ -1,6 +1,6 @@
 regex_files:
-  path: "~/.config/varunastra/regexes.json"
-
+  path: ".config/varunastra/regexes.json"
+    # WARNING: In code, this will be interpreted as $HOMEDIR/path
 blacklisted_patterns:
   - pattern: "(?i)opt/yarn-v[\\d.]+/"
     # Yarn packages typically contain no secrets.
