@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Payload Tester - Devang Solanki</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/material-darker.min.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="tool-header">
+            <h1>XSS Payload Tester</h1>
+            <div class="tool-controls">
+                <button id="bin-toggle" title="Clear">🗑️</button>
+                <button id="theme-toggle" title="Toggle Theme">🌞</button>
+            </div>
+        </div>
+        
+        <div class="editor-container">
+            <div class="editor">
+                <div id="code" placeholder="Enter your JavaScript code here..."></div>
+                <button id="run-button">Run Payload</button>
+            </div>
+            <div class="output" id="output-box">
+                <iframe id="output-iframe" sandbox="allow-scripts allow-same-origin allow-modals"></iframe>
+            </div>
+        </div>
+        
+        <nav style="margin-top: 2rem;">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../tools.html">← Back to Tools</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

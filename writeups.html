@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Writeups - Devang Solanki</title>
+    <meta name="description" content="Solutions and walkthroughs for capture the flag challenges">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="nav-home">Devang</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="bugbounty.html">Bug Bounty</a></li>
+                <li><a href="writeups.html">Writeups</a></li>
+                <li><a href="tools.html">Tools</a></li>
+            </ul>
+        </nav>
+
+        <div class="content-header">
+            <h1>CTF Writeups</h1>
+            <div class="content-meta">Solutions and walkthroughs for capture the flag challenges</div>
+        </div>
+
+        <div class="writeup-list">
+            <article class="writeup-item">
+                <h2><a href="writeups/haskhell.html">Haskhell</a></h2>
+                <p class="writeup-meta">Teach your CS professor that his PhD isn't in security.</p>
+                <a href="writeups/haskhell.html" class="read-more">View solution →</a>
+            </article>
+
+            <article class="writeup-item">
+                <h2><a href="writeups/hacktivitycon-2021.html">H@ctivityCon 2021</a></h2>
+                <p class="writeup-meta">H@cktivityCon is a conference organised by Hackerone every year. This was my first ever conference and CTF competition. Even though I had little experience with CTF (Mostly from Tryhackme) I had difficulty solving many problems. I was able to solve some entry level challenge. Here are some writeups for H@ctivityCon CTF which I was able to solve.</p>
+                <a href="writeups/hacktivitycon-2021.html" class="read-more">View solution →</a>
+            </article>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="bugbounty.html">Bug Bounty</a></li>
+                <li><a href="tools.html">Tools</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+    
+    <!-- Main JavaScript -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Back to top functionality
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

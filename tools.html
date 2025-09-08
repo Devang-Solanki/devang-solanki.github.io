@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Tools - Devang Solanki</title>
+    <meta name="description" content="Security testing tools and utilities">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="nav-home">Devang</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="bugbounty.html">Bug Bounty</a></li>
+                <li><a href="writeups.html">Writeups</a></li>
+                <li><a href="tools.html">Tools</a></li>
+            </ul>
+        </nav>
+
+        <div class="content-header">
+            <h1>Security Tools</h1>
+            <div class="content-meta">Testing tools and utilities for security research</div>
+        </div>
+
+        <div class="tools-list">
+            <article class="tool-item">
+                <h2><a href="tools/xss-payload-tester.html">XSS Payload Tester</a></h2>
+                <p class="tool-meta">Interactive tool for testing XSS payloads with syntax highlighting and safe execution environment.</p>
+                <div class="tool-tags">
+                    <span>XSS</span>
+                    <span>JavaScript</span>
+                    <span>Testing</span>
+                </div>
+                <a href="tools/xss-payload-tester.html" class="read-more">Launch tool →</a>
+            </article>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="writeups.html">Writeups</a></li>
+                <li><a href="bugbounty.html">Bug Bounty</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+    
+    <!-- Main JavaScript -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Back to top functionality
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
+
+<style>
+.tools-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.tool-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+}
+
+.tool-item:hover {
+    border-color: var(--accent-green);
+}
+
+.tool-item h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.25rem;
+}
+
+.tool-item h2 a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.tool-item h2 a:hover {
+    color: var(--accent-green);
+}
+
+.tool-meta {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.tool-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tool-tags span {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    border: 1px solid var(--border-color);
+}
+
+.read-more {
+    color: var(--accent-green);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+</style>
+</body>
+</html>

