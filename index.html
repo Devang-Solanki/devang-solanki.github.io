@@ -36,7 +36,7 @@
             <p class="hero-subtitle">> Initializing: cybersecurity • research • bug_bounty • ctfs</p>
             <div class="terminal-output">
                 <p>> Status: Online</p>
-                <p>> Mode: Hunting vulnerabilities...</p>
+                <p>> Mode: Writing Tools...</p>
             </div>
         </header>
 
@@ -63,54 +63,104 @@
             </div>
         </section>
 
-        <section class="about-section">
-            <h2>$ cat README.md</h2>
-            <div class="about-content">
-                <div class="terminal-output">
-                    <p># Security Researcher</p>
-                    <p>> Specializing in web application security and mobile security research</p>
-                    <p>> Currently hunting critical vulnerabilities through bug bounty programs</p>
-                    <p>> Contributing to open-source security projects and sharing knowledge</p>
-                    <p>> Stack: Go | Python | C | JavaScript</p>
-                </div>
-            </div>
-        </section>
-
         <section class="experience-section">
-            <h2>$ history | grep experience</h2>
+            <h2>$ history | grep current experience</h2>
             <div class="experience-grid">
                 <div class="experience-item">
-                    <h3>> Independent Security Researcher</h3>
-                    <p class="duration">2023 - Present</p>
-                    <p>Discovering and responsibly disclosing security vulnerabilities across web applications and mobile platforms. Focus on account takeover bugs, injection flaws, and business logic vulnerabilities.</p>
+                    <h3>> Security Researcher @ RedhuntLabs</h3>
+                    <p class="duration">Feb 2024 - Present</p>
+                    <p>
+                        • Built tools to monitor certificates, subdomains, DockerHub, and secrets in services like Postman, GitHub, GitLab, and Bitbucket — collecting 100K+ secrets monthly.<br>
+                        • Conduct internet-wide scanning to identify vulnerabilities and enhance threat intelligence.<br>
+                        • Developed scanning infrastructure for ASM including vulnerability scanners, host profilers, and correlation engines.<br>
+                        • Created <a href="https://research.redhuntlabs.com" target="_blank">research.redhuntlabs.com</a> to share datasets and insights with the community.<br>
+                        • Migrated entire infrastructure to AWS, improving efficiency by 45%.
+                    </p>
                 </div>
                 
-                <div class="skills-box">
-                    <h3>$ ls -la /skills/</h3>
-                    <div class="skills-list">
-                        <div class="skill-category">
-                            <h4>./languages/</h4>
-                            <div class="skill-tags">
-                                <span>Go</span>
-                                <span>Python</span>
-                                <span>C</span>
-                                <span>JavaScript</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>./security/</h4>
-                            <div class="skill-tags">
-                                <span>Web Security</span>
-                                <span>Android Security</span>
-                                <span>Bug Bounty</span>
-                                <span>OWASP Top 10</span>
-                                <span>Penetration Testing</span>
-                            </div>
-                        </div>
+        <div class="skills-box">
+            <h3>$ ls -la /skills/</h3>
+            <div class="skills-list">
+                <div class="skill-category">
+                    <h4>./languages/</h4>
+                    <div class="skill-tags">
+                        <span>Go</span>
+                        <span>Python</span>
+                        <span>C</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>./security/</h4>
+                    <div class="skill-tags">
+                        <span>Web Security</span>
+                        <span>Android Security</span>
+                        <span>Bug Bounty</span>
+                        <span>Penetration Testing</span>
+                        <span>Vulnerability Assessment</span>
+                        <span>Security Tool Development</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>./tools/</h4>
+                    <div class="skill-tags">
+                        <span>AWS</span>
+                        <span>Docker</span>
+                        <span>CI/CD</span>
+                        <span>Linux</span>
+                        <span>ELK</span>
+                        <span>Terraform</span>
                     </div>
                 </div>
             </div>
+        </div>
+            </div>
         </section>
+
+        <!-- <section class="about-section">
+        <h2>$ cat README.md</h2>
+        <div class="about-content">
+            <div class="terminal-output">
+            <p># Security Engineer @ RedHunt Labs</p>
+            <p>> Building internet-wide scanners, secrets monitoring tools, and research infrastructure</p>
+            <p>> Presenting tools at BlackHat Asia, EU, and MEA</p>
+            <p>> Contributing to open-source: Varunastra, Agneyastra</p>
+            <p>> Previously: BugBase (VAPT, copilot.bugbase.ai), Bug Bounty (CISCO, EA, Disney...)</p>
+            <p>> Stack: Go | Python | JavaScript | AWS | Docker</p>
+            </div>
+        </div>
+        </section> -->
+
+
+        <section class="presentation-section">
+            <h2>$ who | grep presentations</h2>
+            <div class="terminal-output">
+                <p>> Arsenal Presenter & Trainer</p>
+                <p>> BlackHat Asia 2025 | BlackHat USA 2025 | BlackHat EU 2024 | BlackHat MEA 2024 </p>
+            </div>
+        </section>
+
+
+        <section class="projects-section">
+            <h2>$ cat /projects/tools.md</h2>
+            <div class="terminal-output">
+                <p><strong>Varunastra</strong> — <a href="https://github.com/Devang-Solanki/Varunastra" target="_blank">GitHub</a></p>
+                <p>> Tool to detect and mitigate vulnerabilities in Docker containers and images.</p>
+                <p>> Presented at: BlackHat USA 2025, BlackHat Asia 2025, BlackHat MEA 2024.</p>
+                
+                <br>
+
+                <p><strong>Agneyastra</strong> — <a href="https://github.com/Devang-Solanki/agneyastra" target="_blank">GitHub</a></p>
+                <p>> Detects Firebase misconfigurations with precision for bug bounty hunters and researchers.</p>
+                <p>> Co-Presented at: BlackHat Asia 2025, BlackHat Europe 2024.</p>
+                
+                <br>
+
+                <p><strong>Cyclops</strong> — <a href="https://github.com/Devang-Solanki/cyclops" target="_blank">GitHub</a></p>
+                <p>> Serverless alternative to Burp Suite Collaborator for testing SSRF, blind XSS, and more.</p>
+            </div>
+        </section>
+
 
         <section class="contact-section">
             <h2>$ ./connect.sh</h2>
