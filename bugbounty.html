@@ -3,78 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bug Bounty Reports - Devang Solanki</title>
-    <meta name="description" content="Security vulnerabilities discovered and responsibly disclosed">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom CSS -->
+    <title>Bug Bounty — Devang Solanki</title>
+    <meta name="description" content="Bug bounty disclosures by Devang Solanki — now part of the combined Blogs index.">
+    <link rel="canonical" href="blogs.html">
+    <meta http-equiv="refresh" content="0; url=blogs.html#bug-bounty">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/custom.css">
-
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="9ea69618-e7b1-4216-a683-a94dcd042e4e"></script>
+    <script>location.replace('blogs.html#bug-bounty');</script>
 </head>
-
 <body>
     <div class="container">
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html" class="nav-home">Devang</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="bugbounty.html">Bug Bounty</a></li>
-                <li><a href="writeups.html">Writeups</a></li>
-                <li><a href="tools.html">Tools</a></li>
-            </ul>
-        </nav>
-
         <div class="content-header">
-            <h1>Bug Bounty Reports</h1>
-            <div class="content-meta">Security vulnerabilities discovered and responsibly disclosed</div>
+            <h1>Moved</h1>
+            <div class="content-meta">Bug bounty disclosures now live in the combined <a href="blogs.html#bug-bounty" style="color:var(--accent);">Blogs</a> index. Redirecting…</div>
         </div>
-
-        <div class="bounty-list">
-            <article class="bounty-item">
-                <div class="severity-badge critical">CRITICAL</div>
-                <h2><a href="bugbounty/account-takeover.html">0 Click Account Takeover</a></h2>
-                <p class="bounty-meta">So, this is my first writeup on a bug which I found on a private program on hackerone and also my first critical bug.</p>
-                <a href="bugbounty/account-takeover.html" class="read-more">Read disclosure →</a>
-            </article>
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="writeups.html">Writeups</a></li>
-                <li><a href="tools.html">Tools</a></li>
-            </ul>
-        </nav>
     </div>
-    
-    <!-- Back to top button -->
-    <a href="#" class="back-to-top" id="backToTop">↑</a>
-    
-    <!-- Main JavaScript -->
-    <script src="assets/js/main.js"></script>
-    
-    <script>
-        // Back to top functionality
-        const backToTop = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-        
-        backToTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
 </body>
 </html>

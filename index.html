@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devang Solanki - Security Researcher</title>
-    <meta name="description" content="Cybersecurity researcher, bug bounty hunter, and CTF enthusiast sharing knowledge on security topics.">
-    
+    <title>Devang Solanki — Security Researcher</title>
+    <meta name="description" content="Devang Solanki — security researcher & BlackHat trainer building offensive tooling that hunts secrets, exploits and misconfigurations at internet scale.">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script>/* theme-init */(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/custom.css">
 
@@ -21,212 +23,228 @@
     <div class="container">
         <nav class="main-nav">
             <ul>
-                <li><a href="index.html" class="nav-home">Devang</a></li>
+                <li><a href="index.html" class="nav-home">Devang Solanki</a></li>
                 <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="bugbounty.html">Bug Bounty</a></li>
-                <li><a href="writeups.html">Writeups</a></li>
                 <li><a href="tools.html">Tools</a></li>
             </ul>
         </nav>
 
-        <header class="hero-section">
-            <div class="terminal-prompt">
-                <span class="prompt-text">┌─[ root@devang ]─[ ~ ]</span>
-                <span class="cursor">_</span>
+        <header class="sec hero">
+            <div class="sec-head">
+                <span class="sec-label">00_Intro</span>
+                <span class="sec-note">Open to pentest, bug bounty &amp; research collabs</span>
             </div>
-            <h1 class="hero-title">$ ./security_researcher.sh --execute</h1>
-            <p class="hero-subtitle">> Initializing: cybersecurity • research • bug_bounty • ctfs</p>
-            <div class="terminal-output">
-                <p>> Status: Online</p>
-                <p>> Mode: Writing Tools...</p>
+            <h1 class="display">Security researcher &amp; <span class="accent">BlackHat trainer</span> building tools that hunt secrets at <span class="outline">internet scale</span>.<span class="block-cursor"></span></h1>
+            <p class="hero-sub">currently: security researcher @ RedHunt Labs — Surat, IN</p>
+
+            <div class="stats">
+                <div class="stat"><b>5<em>×</em></b><span>BlackHat stages</span></div>
+                <div class="stat"><b>5<em>+</em></b><span>Tools shipped</span></div>
+                <div class="stat"><b>4<em>+</em></b><span>Yrs offensive security</span></div>
+                <div class="stat"><b>$50K<em>+</em></b><span>In bug bounties</span></div>
             </div>
         </header>
 
-        <section class="profile-section">
-            <div class="profile-grid">
-                <div class="basic-info">
-                    <div class="info-item">
-                        <span class="label">$ whoami</span>
-                        <span class="value">Devang Solanki</span>
+        <section class="sec">
+            <div class="sec-head">
+                <span class="sec-label">01_Experience</span>
+                <span class="sec-note">$ history | tail -n 3</span>
+            </div>
+
+            <details class="xp" open>
+                <summary>
+                    <div class="xp-role">
+                        <h3>Security Researcher</h3>
+                        <p>RedHunt Labs</p>
                     </div>
-                    <div class="info-item">
-                        <span class="label">$ pwd</span>
-                        <span class="value">/home/devang/surat</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">$ cat /proc/role</span>
-                        <span class="value">Security Researcher | Bug Bounty Hunter</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">$ uptime</span>
-                        <span class="value">2+ years writing tools, hunting bugs</span>
-                    </div>
+                    <div class="xp-meta"><span>2024 — Now</span><span class="xp-plus">[+]</span></div>
+                </summary>
+                <div class="xp-body">
+                    <ul>
+                        <li>Built an AI-powered exploit agent that monitors newly published CVE exploitation scripts and automatically converts them into Nuclei templates for vulnerability detection.</li>
+                        <li>Developed cloud security &amp; exposure management tools for AWS, GCP and Cloudflare — continuous discovery of misconfigurations, public assets and exposure risks across multi-cloud environments.</li>
+                        <li>Manage and develop large-scale attack surface management (ASM) infrastructure — vulnerability scanners, host profilers and website correlation engines.</li>
+                        <li>Built tools to monitor certificates, subdomains, DockerHub and secrets across GitHub, GitLab, Bitbucket and Postman — collecting 100,000+ exposed secrets monthly.</li>
+                        <li>Performed internet-wide vulnerability scanning and threat-intelligence research, surfacing emerging exposure patterns across diverse technologies.</li>
+                        <li>Migrated and optimized the entire scanning infrastructure to AWS, improving scalability and scan efficiency by 45%.</li>
+                        <li>Created the public research dashboard <a href="https://research.redhuntlabs.com" target="_blank" rel="noopener">research.redhuntlabs.com</a> — interactive insights and datasets for the global infosec community.</li>
+                    </ul>
+                    <div class="tags"><span>ASM</span><span>Threat Intel</span><span>Cloud</span><span>Go</span><span>AWS</span></div>
                 </div>
+            </details>
+
+            <details class="xp">
+                <summary>
+                    <div class="xp-role">
+                        <h3>Security Engineer</h3>
+                        <p>BugBase</p>
+                    </div>
+                    <div class="xp-meta"><span>2022 — 2024</span><span class="xp-plus">[+]</span></div>
+                </summary>
+                <div class="xp-body">
+                    <ul>
+                        <li>Conducted Vulnerability Assessment &amp; Penetration Testing (VAPT) on Android and web applications, identifying and validating critical vulnerabilities that strengthened client security posture.</li>
+                        <li>Developed in-house security tools to automate vulnerability discovery and streamline triaging and testing workflows — improving assessment efficiency by 30%.</li>
+                        <li>Managed bug bounty programs for major technology companies — report triaging, validation and remediation guidance for fast, effective resolution.</li>
+                        <li>Curated and engineered datasets to fine-tune the AI security models behind copilot.bugbase.ai, and built benchmarks to measure model accuracy and exploit-detection effectiveness.</li>
+                    </ul>
+                    <div class="tags"><span>VAPT</span><span>Android</span><span>Triage</span><span>AI Security</span></div>
+                </div>
+            </details>
+
+            <details class="xp">
+                <summary>
+                    <div class="xp-role">
+                        <h3>Bug Bounty Hunter</h3>
+                        <p>Intigriti · HackerOne</p>
+                    </div>
+                    <div class="xp-meta"><span>2022 — Now</span><span class="xp-plus">[+]</span></div>
+                </summary>
+                <div class="xp-body">
+                    <ul>
+                        <li>Reported and responsibly disclosed critical vulnerabilities to major organizations including Microsoft, MongoDB, Salesforce, Cisco and EA Sports.</li>
+                        <li>Identified high-impact issues: RCE, account takeover, Firebase database takeovers, CSRF leading to organization takeover, SSRF to local file read, and complex business-logic bypasses.</li>
+                    </ul>
+                    <div class="tags"><span>RCE</span><span>ATO</span><span>SSRF</span><span>Logic Bugs</span></div>
+                </div>
+            </details>
+        </section>
+
+        <section class="sec">
+            <div class="sec-head">
+                <span class="sec-label">02_Hall_of_Fame</span>
+                <span class="sec-note">Reported critical bugs to</span>
+            </div>
+            <div class="logo-wall">
+                <div class="logo" data-logo="microsoft" role="img" aria-label="Microsoft"></div>
+                <div class="logo" data-logo="mongodb" role="img" aria-label="MongoDB"></div>
+                <div class="logo" data-logo="salesforce" role="img" aria-label="Salesforce"></div>
+                <div class="logo" data-logo="yahoo" role="img" aria-label="Yahoo"></div>
+                <div class="logo" data-logo="ea" role="img" aria-label="EA"></div>
             </div>
         </section>
 
-        <section class="experience-section">
-            <h2>$ history | grep current experience</h2>
-            <div class="experience-grid">
-                <div class="experience-item">
-                    <h3>> Security Researcher @ RedhuntLabs</h3>
-                    <p class="duration">Feb 2024 - Present</p>
-                    <p>
-                        • Built tools to monitor certificates, subdomains, DockerHub, and secrets in services like Postman, GitHub, GitLab, and Bitbucket — collecting 100K+ secrets monthly.<br>
-                        • Conduct internet-wide scanning to identify vulnerabilities and enhance threat intelligence.<br>
-                        • Developed scanning infrastructure for ASM including vulnerability scanners, host profilers, and correlation engines.<br>
-                        • Created <a href="https://research.redhuntlabs.com" target="_blank">research.redhuntlabs.com</a> to share datasets and insights with the community.<br>
-                        • Migrated entire infrastructure to AWS, improving efficiency by 45%.
-                    </p>
-                </div>
-                
-        <div class="skills-box">
-            <h3>$ ls -la /skills/</h3>
-            <div class="skills-list">
-                <div class="skill-category">
-                    <h4>./languages/</h4>
-                    <div class="skill-tags">
-                        <span>Go</span>
-                        <span>Python</span>
-                        <span>C</span>
-                        <span>JavaScript</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h4>./security/</h4>
-                    <div class="skill-tags">
-                        <span>Web Security</span>
-                        <span>Android Security</span>
-                        <span>Bug Bounty</span>
-                        <span>Penetration Testing</span>
-                        <span>Vulnerability Assessment</span>
-                        <span>Security Tool Development</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h4>./tools/</h4>
-                    <div class="skill-tags">
-                        <span>AWS</span>
-                        <span>Docker</span>
-                        <span>CI/CD</span>
-                        <span>Linux</span>
-                        <span>ELK</span>
-                        <span>Terraform</span>
-                    </div>
-                </div>
+        <section class="sec">
+            <div class="sec-head">
+                <span class="sec-label">03_Arsenal</span>
+                <span class="sec-note"><a href="tools.html">All tools →</a></span>
             </div>
-        </div>
+
+            <div class="row-list">
+                <a class="row" href="https://github.com/Devang-Solanki/iamx" target="_blank" rel="noopener">
+                    <div class="row-main">
+                        <h3>IAMX<span class="arrow">↗</span></h3>
+                        <p>Multi-cloud IAM enumeration CLI — effective permissions across 400+ AWS services, 4000+ GCP permissions, 2000+ Azure operations.</p>
+                    </div>
+                    <div class="row-meta"><span class="lang">Python</span><span class="venue">AWS · GCP · Azure</span></div>
+                </a>
+
+                <a class="row" href="https://github.com/Devang-Solanki/Varunastra" target="_blank" rel="noopener">
+                    <div class="row-main">
+                        <h3>Varunastra<span class="arrow">↗</span></h3>
+                        <p>Detects and mitigates vulnerabilities across Docker containers and images — secrets, CVEs, misconfigs.</p>
+                    </div>
+                    <div class="row-meta"><span class="lang">Go</span><span class="venue">BlackHat USA · Asia · MEA</span></div>
+                </a>
+
+                <a class="row" href="https://github.com/Devang-Solanki/agneyastra" target="_blank" rel="noopener">
+                    <div class="row-main">
+                        <h3>Agneyastra<span class="arrow">↗</span></h3>
+                        <p>Firebase misconfiguration detection toolkit built for bug bounty hunters and researchers.</p>
+                    </div>
+                    <div class="row-meta"><span class="lang">Go</span><span class="venue">BlackHat Asia · EU</span></div>
+                </a>
+
+                <a class="row" href="https://github.com/Devang-Solanki/cyclops" target="_blank" rel="noopener">
+                    <div class="row-main">
+                        <h3>Cyclops<span class="arrow">↗</span></h3>
+                        <p>Free serverless alternative to Burp Collaborator — catch SSRF and blind XSS callbacks without infrastructure.</p>
+                    </div>
+                    <div class="row-meta"><span class="lang">NodeJS</span><span class="venue">Serverless</span></div>
+                </a>
             </div>
         </section>
 
-        <!-- <section class="about-section">
-        <h2>$ cat README.md</h2>
-        <div class="about-content">
-            <div class="terminal-output">
-            <p># Security Engineer @ RedHunt Labs</p>
-            <p>> Building internet-wide scanners, secrets monitoring tools, and research infrastructure</p>
-            <p>> Presenting tools at BlackHat Asia, EU, and MEA</p>
-            <p>> Contributing to open-source: Varunastra, Agneyastra</p>
-            <p>> Previously: BugBase (VAPT, copilot.bugbase.ai), Bug Bounty (CISCO, EA, Disney...)</p>
-            <p>> Stack: Go | Python | JavaScript | AWS | Docker</p>
+        <section class="sec">
+            <div class="sec-head">
+                <span class="sec-label">04_Writing</span>
+                <span class="sec-note">Latest reads · <a href="blogs.html">all posts →</a></span>
             </div>
-        </div>
-        </section> -->
 
-
-        <section class="presentation-section">
-            <h2>$ who | grep presentations</h2>
-            <div class="terminal-output">
-                <p>> Trainer: BlackHat EU 2024</p>
-                <p>> Arsenal: BlackHat Asia 2025 | BlackHat USA 2025 | BlackHat EU 2024 | BlackHat MEA 2024 </p>
-            </div>
-        </section>
-
-
-        <section class="projects-section">
-            <h2>$ cat /projects/presented-tools.md</h2>
-            <div class="terminal-output">
-                <p><strong>Varunastra</strong> — <a href="https://github.com/Devang-Solanki/Varunastra" target="_blank">GitHub</a></p>
-                <p>> Tool to detect and mitigate vulnerabilities in Docker containers and images.</p>
-                <p>> Presented at: BlackHat USA 2025, BlackHat Asia 2025, BlackHat MEA 2024.</p>
-                
-                <br>
-
-                <p><strong>Agneyastra</strong> — <a href="https://github.com/Devang-Solanki/agneyastra" target="_blank">GitHub</a></p>
-                <p>> Detects Firebase misconfigurations with precision for bug bounty hunters and researchers.</p>
-                <p>> Co-Presented at: BlackHat Asia 2025, BlackHat Europe 2024.</p>
-                
-                <br>
-            </div>
-        </section>
-
-
-        <section class="contact-section">
-            <h2>$ ./connect.sh</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <p>> Establishing secure connections for collaborations and research discussions...</p>
-                    <div class="contact-links">
-                        <a href="https://github.com/Devang-Solanki" target="_blank">
-                            <span class="icon">📁</span> GitHub
-                        </a>
-                        <a href="https://www.linkedin.com/in/devangdsolanki/" target="_blank">
-                            <span class="icon">💼</span> LinkedIn
-                        </a>
-                        <a href="https://twitter.com/devangsolankii" target="_blank">
-                            <span class="icon">🐦</span> Twitter
-                        </a>
-                        <a href="https://www.instagram.com/devangsolanki_" target="_blank">
-                            <span class="icon">📷</span> Instagram
-                        </a>
+            <div class="row-list">
+                <a class="row" href="https://redhuntlabs.com/blog/echoes-of-ai-exposure-thousands-of-secrets-leaking-through-vibe-coded-sites-wave-15-project-resonance" target="_blank" rel="noopener">
+                    <div class="row-main">
+                        <h3>Echoes of AI Exposure<span class="arrow">↗</span></h3>
+                        <p>Thousands of secrets leaking through vibe-coded sites — Project Resonance, Wave 15.</p>
                     </div>
+                    <div class="row-meta"><span class="venue">RedHunt Labs</span></div>
+                </a>
+
+                <a class="row" href="bugbounty/account-takeover.html">
+                    <div class="row-main">
+                        <h3>0-Click Account Takeover<span class="arrow">→</span></h3>
+                        <p>My first critical: a zero-interaction account takeover on a private HackerOne program.</p>
+                    </div>
+                    <div class="row-meta"><span class="badge">Critical</span></div>
+                </a>
+
+                <a class="row" href="blogs/ssl-unpinning.html">
+                    <div class="row-main">
+                        <h3>SSL Unpinning Made Easy<span class="arrow">→</span></h3>
+                        <p>How BurpSuite intercepts HTTPS, and a simple Frida workflow to strip pinning from Android apps.</p>
+                    </div>
+                    <div class="row-meta"><span class="venue">Android</span></div>
+                </a>
+            </div>
+
+            <div class="index-links">
+                <a href="blogs.html#blog">Blogs <span>06</span></a>
+                <a href="blogs.html#bug-bounty">Bug Bounty <span>01</span></a>
+                <a href="blogs.html#writeup">CTF Writeups <span>02</span></a>
+            </div>
+        </section>
+
+        <section class="sec" id="contact">
+            <div class="sec-head">
+                <span class="sec-label">05_Contact</span>
+                <span class="sec-note">Let's break something — responsibly</span>
+            </div>
+
+            <div class="c-row">
+                <span class="c-label">Email</span>
+                <div class="c-value">
+                    <a class="c-big" href="mailto:hacker.devang@gmail.com">hacker.devang@gmail.com</a>
+                    <button class="copy-btn" data-copy="hacker.devang@gmail.com">[ Copy ]</button>
                 </div>
-                <div class="support-box">
-                    <h3>$ make coffee</h3>
-                    <p>> If my research helped secure your systems, fuel the next discovery!</p>
-                    <a href="https://www.buymeacoffee.com/devangsolankii" target="_blank" class="coffee-btn">
-                        ☕ Execute payment
-                    </a>
+            </div>
+
+            <div class="c-row">
+                <span class="c-label">Connect</span>
+                <div class="c-links">
+                    <a href="https://github.com/Devang-Solanki" target="_blank" rel="noopener">GitHub ↗</a>
+                    <a href="https://www.linkedin.com/in/devangdsolanki/" target="_blank" rel="noopener">LinkedIn ↗</a>
+                    <a href="https://twitter.com/devangsolankii" target="_blank" rel="noopener">Twitter ↗</a>
+                    <a href="https://www.instagram.com/devangsolanki_" target="_blank" rel="noopener">Instagram ↗</a>
                 </div>
+            </div>
+
+            <div class="c-row">
+                <span class="c-label">Fuel</span>
+                <a href="https://www.buymeacoffee.com/devangsolankii" target="_blank" rel="noopener" class="coffee-btn">☕ Buy me a coffee →</a>
             </div>
         </section>
 
         <footer class="site-footer">
-            <div class="footer-content">
-                <p>$ echo "Built with ❤️ for the security community"</p>
-                <p>> Connection established. Happy hacking! 🔐</p>
-            </div>
+            <p>© 2026 Devang Solanki</p>
+            <p>Built with <img src="logo/claude-code.svg" alt="Claude" class="claude-mark"> for the security community</p>
+            <a href="#top" id="footerTop">Back to top ↑</a>
         </footer>
     </div>
-    
+
     <!-- Back to top button -->
     <a href="#" class="back-to-top" id="backToTop">↑</a>
-    
+
     <!-- Main JavaScript -->
     <script src="assets/js/main.js"></script>
-    
-    <script>
-        // Back to top functionality
-        const backToTop = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-        
-        backToTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Terminal cursor blinking animation
-        const cursor = document.querySelector('.cursor');
-        setInterval(() => {
-            cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
-        }, 600);
-    </script>
 </body>
 </html>
