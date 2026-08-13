@@ -24,23 +24,23 @@
   --gutter: clamp(1.5rem, 5vw, 5rem);
 }
 
-/* Light theme — same structure, paper palette; lime stays a fill, text-accent
-   becomes a deep lime-green so it stays readable on white. */
+/* Light theme — soft-grey canvas (#F5F5F5), dark grey-green ink (#40514E),
+   teal fill accent (#30E3CA) + blue text accent (#2F89FC). */
 :root[data-theme="light"] {
-  --bg: #f4efe3;
-  --bg-raise: #fffdf7;
-  --bg-press: #e9e1d1;
-  --ink: #17212b;
-  --muted: #4f5c68;
-  --faint: #737d85;
-  --line: #ddd3c0;
-  --line-strong: #b8aa92;
-  --accent: #c4df19;
-  --accent-ink: #172006;
-  --accent-text: #416600;
-  --red: #c9362b;
-  --nav-bg: rgba(244, 239, 227, 0.9);
-  --dot: rgba(53, 70, 83, 0.09);
+  --bg: #F5F5F5;
+  --bg-raise: #ffffff;
+  --bg-press: #e9eeed;
+  --ink: #40514E;
+  --muted: #5f716d;
+  --faint: #93a09c;
+  --line: #e4e7e6;
+  --line-strong: #ccd4d2;
+  --accent: #30E3CA;        /* teal — used as a FILL (dark text sits on it) */
+  --accent-ink: #0c332e;    /* text/icon colour that sits ON the teal fill */
+  --accent-text: #2F89FC;   /* blue — accent used AS text on the page background */
+  --red: #d8362b;
+  --nav-bg: rgba(245, 245, 245, 0.9);
+  --dot: rgba(64, 81, 78, 0.08);
 }
 
 :root { color-scheme: dark; }
