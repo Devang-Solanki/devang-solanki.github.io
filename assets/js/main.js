@@ -108,6 +108,51 @@ document.addEventListener('DOMContentLoaded', function () {
     (navList.closest('.main-nav') || navList).appendChild(wrap);
   }
 
+  // --- Nav: encrypt/decrypt scramble on the name --------------------------
+  const nameEl = document.querySelector('.main-nav .nav-home');
+  if (nameEl) {
+    const original = nameEl.textContent;
+    const chars = '!<>-_/[]{}=+*^?#%$&0123456789ABCDEF';
+    const rnd = () => chars[Math.floor(Math.random() * chars.length)];
+    let queue = [], frame = 0, req, resolveFn;
+
+    const update = () => {
+      let out = '', done = 0;
+      for (let i = 0; i < queue.length; i++) {
+        const q = queue[i];
+        if (frame >= q.end) { done++; out += q.to; }
+        else if (frame >= q.start) {
+          if (!q.char || Math.random() < 0.28) q.char = q.to === ' ' ? ' ' : rnd();
+          out += '<span class="dud">' + q.char + '</span>';
+        } else { out += q.from; }
+      }
+      nameEl.innerHTML = out;
+      if (done === queue.length) { if (resolveFn) resolveFn(); }
+      else { frame++; req = requestAnimationFrame(update); }
+    };
+
+    const setText = newText => {
+      const oldText = nameEl.textContent;
+      const len = Math.max(oldText.length, newText.length);
+      queue = [];
+      for (let i = 0; i < len; i++) {
+        const start = Math.floor(Math.random() * 18);
+        const end = start + 10 + Math.floor(Math.random() * 22);
+        queue.push({ from: oldText[i] || '', to: newText[i] || '', start: start, end: end, char: '' });
+      }
+      cancelAnimationFrame(req);
+      frame = 0;
+      return new Promise(res => { resolveFn = res; update(); });
+    };
+
+    const cipher = () => Array.from(original).map(c => (c === ' ' ? ' ' : rnd())).join('');
+
+    nameEl.addEventListener('mouseenter', () => setText(cipher()));
+    nameEl.addEventListener('mouseleave', () => setText(original));
+    nameEl.addEventListener('focus', () => setText(cipher()));
+    nameEl.addEventListener('blur', () => setText(original));
+  }
+
   // --- Unified writing index: search + tag filter -------------------------
   const list = document.getElementById('writingList');
   if (list) {

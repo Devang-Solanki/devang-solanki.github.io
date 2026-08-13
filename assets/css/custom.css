@@ -190,6 +190,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 .main-nav .nav-home::before { content: '[ '; color: var(--accent-text); }
 .main-nav .nav-home::after  { content: ' ]'; color: var(--accent-text); }
+.main-nav .nav-home { cursor: pointer; }
+/* flickering cipher glyphs while the name scrambles (see main.js) */
+.main-nav .nav-home .dud { color: var(--accent-text); opacity: 0.85; }
 
 /* ---- Animated day/night theme switch (injected into nav) ----------------
    Scaled-down + fully scoped adaptation of the CodePen sun/moon toggle.
@@ -1094,6 +1097,8 @@ pre:hover .copy-code { opacity: 1; }
 @media (max-width: 900px) {
   .logo-wall { grid-template-columns: repeat(2, 1fr); }
   .logo-wall .logo:nth-child(odd) { border-left: none; }
+  /* an odd number of tiles leaves a lone last one — let it span the full row */
+  .logo-wall .logo:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 
 /* ------------------------------------------------------------
