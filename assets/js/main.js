@@ -251,4 +251,103 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+  // --- Custom cursor: block caret + lagging reticle + terminal labels ------
+  (function customCursor() {
+    const fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (!fine.matches || reduce.matches) return; // desktop mouse only, respect a11y
+
+    const root = document.documentElement;
+    const cur = document.createElement('div'); cur.className = 'cursor';
+    const caret = document.createElement('div'); caret.className = 'cursor-caret';
+    const label = document.createElement('span'); label.className = 'cursor-label';
+    cur.appendChild(caret);
+    cur.appendChild(label);
+    document.body.appendChild(cur);
+
+    let idle, armed = false, lastX = null, lastY = null;
+    const POS_KEY = 'cursorPos';
+    const arm = () => { if (!armed) { armed = true; root.classList.add('cursor-on'); } };
+
+    // Restore the last pointer position across a same-tab navigation so the caret
+    // appears instantly where you clicked — no native-cursor flash between pages.
+    try {
+      const saved = sessionStorage.getItem(POS_KEY);
+      if (saved) {
+        const parts = saved.split(',');
+        const sx = +parts[0], sy = +parts[1];
+        if (isFinite(sx) && isFinite(sy)) {
+          lastX = sx; lastY = sy;
+          cur.style.transform = 'translate(' + sx + 'px,' + sy + 'px)';
+          arm();
+        }
+      }
+    } catch (e) { /* ignore */ }
+
+    window.addEventListener('mousemove', e => {
+      lastX = e.clientX; lastY = e.clientY;
+      cur.style.transform = 'translate(' + lastX + 'px,' + lastY + 'px)';
+      // arm only once we have a real position, so the caret never flashes at a corner
+      arm();
+      root.classList.add('cursor-moving'); // solid while moving; blinks when idle
+      clearTimeout(idle);
+      idle = setTimeout(() => root.classList.remove('cursor-moving'), 650);
+    }, { passive: true });
+
+    // persist position right before a navigation so the next page can restore it
+    const savePos = () => {
+      try { if (lastX !== null) sessionStorage.setItem(POS_KEY, lastX + ',' + lastY); } catch (e) {}
+    };
+    window.addEventListener('pagehide', savePos);
+    window.addEventListener('beforeunload', savePos);
+
+    // what the reticle "says" over a given target
+    const labelFor = el => {
+      if (el.closest('.copy-btn')) return 'copy';
+      if (el.closest('.theme-switch-wrap')) return 'flip';
+      if (el.closest('.filter-pills button')) return 'filter';
+      if (el.closest('summary')) {
+        const d = el.closest('details');
+        return d && d.open ? 'close' : 'expand';
+      }
+      const a = el.closest('a');
+      if (a) return a.target === '_blank' ? 'open ↗' : 'read';
+      if (el.closest('button')) return 'go';
+      return '';
+    };
+
+    const INTERACTIVE = 'a, button, summary, [role="button"], .row';
+
+    document.addEventListener('mouseover', e => {
+      const el = e.target;
+      // text fields keep a native caret; hide the custom cursor there
+      if (el.closest('input, textarea, [contenteditable="true"]')) {
+        root.classList.add('cursor-text');
+        return;
+      }
+      const hit = el.closest(INTERACTIVE);
+      if (hit) {
+        root.classList.add('cursor-hover');
+        const txt = labelFor(el);
+        label.textContent = txt;
+        cur.classList.toggle('has-label', !!txt);
+      }
+    });
+
+    document.addEventListener('mouseout', e => {
+      if (e.target.closest('input, textarea, [contenteditable="true"]')) {
+        root.classList.remove('cursor-text');
+      }
+      if (e.target.closest(INTERACTIVE)) {
+        root.classList.remove('cursor-hover');
+        cur.classList.remove('has-label');
+      }
+    });
+
+    document.addEventListener('mousedown', () => root.classList.add('cursor-down'));
+    document.addEventListener('mouseup', () => root.classList.remove('cursor-down'));
+    document.addEventListener('mouseleave', () => root.classList.add('cursor-hidden'));
+    document.addEventListener('mouseenter', () => root.classList.remove('cursor-hidden'));
+  })();
 });
