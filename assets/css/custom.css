@@ -304,27 +304,50 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .switch input:checked + .slider .spaceship { opacity: 1; transform: translateY(-100px) translateX(40px); }
 
+/* the status group is a row of separate pills, pinned to the right of the nav */
 .nav-status {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  padding: 0.3rem 0.85rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  color: var(--muted);
+  gap: 0.4rem;
+  font-family: var(--font-mono);
   white-space: nowrap;
 }
+
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 0.32rem 0.7rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  background: none;
+}
+
+button.nav-clock { cursor: pointer; transition: border-color 0.15s ease; }
+button.nav-clock:hover { border-color: var(--faint); }
+
+.nav-status .stat-word { font-weight: 700; letter-spacing: 0.1em; }
+.nav-status .stat-time { color: var(--muted); font-variant-numeric: tabular-nums; }
+.nav-off { color: var(--faint); }
 
 .nav-status .dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: var(--accent);
+  flex-shrink: 0;
   animation: pulse 2s ease-in-out infinite;
 }
+
+/* availability states */
+.nav-status.s-online .dot { background: #2ecc71; }
+.nav-status.s-online .stat-word { color: #2ecc71; }
+.nav-status.s-asleep .dot { background: var(--faint); animation: none; }
+.nav-status.s-asleep .stat-word { color: var(--faint); }
 
 @keyframes pulse {
   0%, 100% { opacity: 1; }
