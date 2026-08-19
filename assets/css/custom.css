@@ -304,55 +304,22 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .switch input:checked + .slider .spaceship { opacity: 1; transform: translateY(-100px) translateX(40px); }
 
-/* the status group is a row of separate pills, pinned to the right of the nav */
-.nav-status {
+/* availability status — a bracketed nav item, right-aligned like the others */
+.nav-avail-status {
   margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   white-space: nowrap;
-}
-
-.nav-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  padding: 0.32rem 0.7rem;
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
   color: var(--muted);
-  background: none;
 }
 
-button.nav-clock { cursor: pointer; transition: border-color 0.15s ease; }
-button.nav-clock:hover { border-color: var(--faint); }
+.nav-avail-status::before { content: '[ '; color: var(--faint); }
+.nav-avail-status::after  { content: ' ]'; color: var(--faint); }
 
-.nav-status .stat-word { font-weight: 700; letter-spacing: 0.1em; }
-.nav-status .stat-time { color: var(--muted); font-variant-numeric: tabular-nums; }
-.nav-off { color: var(--faint); }
-
-.nav-status .dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-/* availability states */
-.nav-status.s-online .dot { background: #2ecc71; }
-.nav-status.s-online .stat-word { color: #2ecc71; }
-.nav-status.s-asleep .dot { background: var(--faint); animation: none; }
-.nav-status.s-asleep .stat-word { color: var(--faint); }
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.25; }
-}
+.nav-avail-status.s-online { color: #2ecc71; }
+.nav-avail-status.s-asleep { color: var(--faint); }
 
 /* ------------------------------------------------------------
    Ticker marquee
@@ -1042,7 +1009,7 @@ pre:hover .copy-code { opacity: 1; }
 @media (max-width: 768px) {
   :root { --gutter: 1.25rem; }
   .container { padding-bottom: 1.25rem; }
-  .nav-status { display: none; }
+  .nav-avail-status { display: none; }
 
   .sec { padding-top: 3rem; }
   .hero { padding-top: 3.5rem; }

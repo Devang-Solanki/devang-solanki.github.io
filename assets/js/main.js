@@ -51,77 +51,24 @@ document.addEventListener('DOMContentLoaded', function () {
     if (link) window.location.href = link.href;
   });
 
-  // --- Nav: availability · Surat clock · timezone offset (separate pills) --
+  // --- Nav: availability status (awake 08:00–22:30 IST) --------------------
   const navList = document.querySelector('.main-nav ul');
   if (navList) {
-    // how far Surat (IST, UTC+5:30) is ahead of the visitor's timezone
-    const diffMin = 330 - (-new Date().getTimezoneOffset());
-    const togglable = diffMin !== 0; // no toggle / offset when in the same timezone
+    const status = document.createElement('span');
+    status.className = 'nav-avail-status';
+    navList.appendChild(status);
 
-    const group = document.createElement('div');
-    group.className = 'nav-status';
-
-    // pill 1 — availability
-    const avail = document.createElement('span');
-    avail.className = 'nav-pill nav-avail';
-    avail.innerHTML = '<span class="dot"></span><span class="stat-word"></span>';
-    group.appendChild(avail);
-
-    // pill 2 — the clock (a button that toggles IST ⇄ your local time)
-    const clock = document.createElement(togglable ? 'button' : 'span');
-    clock.className = 'nav-pill nav-clock';
-    if (togglable) clock.type = 'button';
-    const timeEl = document.createElement('span');
-    timeEl.className = 'stat-time';
-    clock.appendChild(timeEl);
-    group.appendChild(clock);
-
-    // pill 3 — timezone offset, only when the visitor is elsewhere
-    if (togglable) {
-      const a = Math.abs(diffMin), h = Math.floor(a / 60), mm = a % 60;
-      const mag = mm === 0 ? h + 'h' : mm === 30 ? h + '.5h' : h + 'h' + mm + 'm';
-      const off = document.createElement('span');
-      off.className = 'nav-pill nav-off';
-      off.textContent = (diffMin > 0 ? '+' : '−') + mag;
-      off.title = 'Surat is ' + off.textContent + ' ' + (diffMin > 0 ? 'ahead of' : 'behind') + ' your timezone';
-      group.appendChild(off);
-    }
-
-    navList.appendChild(group);
-
-    const wordEl = avail.querySelector('.stat-word');
-    const istClock = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
-    const youClock = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
-
-    // availability from the IST time: awake 08:00 → 22:30, asleep otherwise
-    const statusOf = mins =>
-      (mins >= 8 * 60 && mins < 22 * 60 + 30) ? ['online', 'ONLINE'] : ['asleep', 'ASLEEP'];
-
-    let mode = 'ist';
-    try { mode = localStorage.getItem('clockMode') === 'local' ? 'local' : 'ist'; } catch (e) { /* ignore */ }
-
+    const istHM = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false });
     const tick = () => {
-      const now = new Date();
-      const istStr = istClock.format(now);                  // "HH:MM:SS"
-      const mins = (+istStr.slice(0, 2)) * 60 + (+istStr.slice(3, 5));
-      const s = statusOf(mins);
-      group.classList.remove('s-online', 's-asleep');
-      group.classList.add('s-' + s[0]);
-      wordEl.textContent = s[1];
-      timeEl.textContent = (togglable && mode === 'local') ? 'YOU ' + youClock.format(now) : 'IN ' + istStr;
+      const hm = istHM.format(new Date()).split(':');
+      const mins = (+hm[0]) * 60 + (+hm[1]);
+      const online = mins >= 8 * 60 && mins < 22 * 60 + 30;
+      status.classList.toggle('s-online', online);
+      status.classList.toggle('s-asleep', !online);
+      status.textContent = online ? 'ONLINE' : 'ASLEEP';
     };
     tick();
-    setInterval(tick, 1000);
-
-    if (togglable) {
-      clock.title = 'Click to switch between Surat time and your local time';
-      clock.setAttribute('aria-label', clock.title);
-      clock.addEventListener('click', () => {
-        mode = mode === 'ist' ? 'local' : 'ist';
-        try { localStorage.setItem('clockMode', mode); } catch (e) { /* ignore */ }
-        tick();
-      });
-    }
+    setInterval(tick, 30000); // status only flips on minute boundaries
   }
 
   // --- Nav: animated day/night theme switch --------------------------------
@@ -360,7 +307,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // what the reticle "says" over a given target
     const labelFor = el => {
       if (el.closest('.copy-btn')) return 'copy';
-      if (el.closest('.nav-clock')) return 'tz';
       if (el.closest('.theme-switch-wrap')) return 'flip';
       if (el.closest('.filter-pills button')) return 'filter';
       if (el.closest('summary')) {
