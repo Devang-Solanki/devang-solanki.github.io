@@ -322,43 +322,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .nav-avail-status.s-asleep { color: var(--faint); }
 
 /* ------------------------------------------------------------
-   Ticker marquee
-   ------------------------------------------------------------ */
-
-.ticker {
-  margin: 0 calc(-1 * var(--gutter));
-  border-bottom: 1px solid var(--line);
-  overflow: hidden;
-  padding: 0.55rem 0;
-  user-select: none;
-}
-
-.ticker-track {
-  display: flex;
-  gap: 3rem;
-  width: max-content;
-  animation: ticker 40s linear infinite;
-}
-
-.ticker:hover .ticker-track { animation-play-state: paused; }
-
-.ticker span {
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--faint);
-  white-space: nowrap;
-}
-
-.ticker span strong { color: var(--muted); font-weight: 600; }
-.ticker span em { color: var(--accent-text); font-style: normal; }
-
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* ------------------------------------------------------------
    Hero
    ------------------------------------------------------------ */
 
@@ -505,14 +468,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
    Tag chips (shared)
    ------------------------------------------------------------ */
 
-.tags, .skill-tags, .tool-tags, .card-tags {
+.tags, .tool-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 1rem;
 }
 
-.tags span, .skill-tags span, .tool-tags span, .card-tags span {
+.tags span, .tool-tags span {
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -584,6 +547,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 .row-meta .lang { color: var(--accent-text); font-weight: 600; }
 .row-meta .venue { color: var(--faint); }
+.row-date { color: var(--faint); font-variant-numeric: tabular-nums; }
 
 .badge {
   font-size: 0.65rem;
@@ -809,6 +773,16 @@ nav:not(.main-nav) a::before { content: '› '; color: var(--accent-text); }
   max-width: 62ch;
 }
 
+.content-date {
+  display: block;
+  margin-top: 0.85rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.content-date::before { content: '— '; }
+
 .content-body {
   color: var(--muted);
   line-height: 1.75;
@@ -892,27 +866,26 @@ pre { position: relative; }
 pre:hover .copy-code { opacity: 1; }
 
 /* ------------------------------------------------------------
-   Legacy card lists → restyled as rows
-   (blog-item / writeup-item / bounty-item / tool-item)
+   Tool list items  (tools.html)
    ------------------------------------------------------------ */
 
-.blog-list, .writeup-list, .bounty-list, .tools-list {
+.tools-list {
   border-top: 1px solid var(--line);
   display: block;
 }
 
-.blog-item, .writeup-item, .bounty-item, .tool-item {
+.tool-item {
   padding: 1.8rem 0.5rem;
   border-bottom: 1px solid var(--line);
   position: relative;
   transition: background 0.15s ease;
 }
 
-.blog-item:hover, .writeup-item:hover, .bounty-item:hover, .tool-item:hover {
+.tool-item:hover {
   background: var(--bg-raise);
 }
 
-.blog-item h2, .writeup-item h2, .bounty-item h2, .tool-item h2 {
+.tool-item h2 {
   font-family: var(--font-display);
   font-size: 1.45rem;
   font-weight: 500;
@@ -921,16 +894,15 @@ pre:hover .copy-code { opacity: 1; }
   max-width: 80%;
 }
 
-.blog-item h2 a, .writeup-item h2 a, .bounty-item h2 a, .tool-item h2 a {
+.tool-item h2 a {
   color: var(--ink);
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
-.blog-item:hover h2 a, .writeup-item:hover h2 a,
-.bounty-item:hover h2 a, .tool-item:hover h2 a { color: var(--accent-text); }
+.tool-item:hover h2 a { color: var(--accent-text); }
 
-.blog-meta, .writeup-meta, .bounty-meta, .tool-meta {
+.tool-meta {
   color: var(--muted);
   font-size: 0.82rem;
   max-width: 68ch;
@@ -947,22 +919,6 @@ pre:hover .copy-code { opacity: 1; }
 }
 
 .read-more:hover { text-decoration: underline; }
-
-.severity-badge {
-  position: absolute;
-  top: 1.9rem;
-  right: 0.5rem;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  padding: 0.2rem 0.6rem;
-}
-
-.severity-badge.critical {
-  border: 1px solid var(--red);
-  color: var(--red);
-  background: none;
-}
 
 /* ------------------------------------------------------------
    Back to top
@@ -1020,8 +976,7 @@ pre:hover .copy-code { opacity: 1; }
   .c-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .c-value, .c-links, .coffee-btn { margin-left: 0; justify-content: flex-start; }
 
-  .blog-item h2, .writeup-item h2, .bounty-item h2, .tool-item h2 { max-width: 100%; }
-  .severity-badge { position: static; display: inline-block; margin-bottom: 0.75rem; }
+  .tool-item h2 { max-width: 100%; }
 
   .site-footer { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
 }
