@@ -36,7 +36,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
 <script>/* theme-init */(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 
@@ -47,7 +48,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <main class="container">
         <nav class="main-nav">
             <ul>
                 <li><a href="index.html" class="nav-home">Devang Solanki</a></li>
@@ -81,7 +82,7 @@
             <details class="xp" open>
                 <summary>
                     <div class="xp-role">
-                        <h3>Security Researcher</h3>
+                        <h2>Security Researcher</h2>
                         <p>RedHunt Labs</p>
                     </div>
                     <div class="xp-meta"><span>2024 — Now</span><span class="xp-plus">[+]</span></div>
@@ -103,7 +104,7 @@
             <details class="xp">
                 <summary>
                     <div class="xp-role">
-                        <h3>Security Engineer</h3>
+                        <h2>Security Engineer</h2>
                         <p>BugBase</p>
                     </div>
                     <div class="xp-meta"><span>2022 — 2024</span><span class="xp-plus">[+]</span></div>
@@ -122,7 +123,7 @@
             <details class="xp">
                 <summary>
                     <div class="xp-role">
-                        <h3>Bug Bounty Hunter</h3>
+                        <h2>Bug Bounty Hunter</h2>
                         <p>Intigriti · HackerOne</p>
                     </div>
                     <div class="xp-meta"><span>2022 — Now</span><span class="xp-plus">[+]</span></div>
@@ -266,7 +267,7 @@
             <p>Built with <img src="logo/claude-code.svg" alt="Claude" class="claude-mark"> for the security community</p>
             <a href="#top" id="footerTop">Back to top ↑</a>
         </footer>
-    </div>
+    </main>
 
     <!-- Back to top button -->
     <a href="#" class="back-to-top" id="backToTop">↑</a>

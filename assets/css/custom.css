@@ -10,7 +10,7 @@
   --bg-press: #16181f;
   --ink: #eaebee;
   --muted: #8f96a3;
-  --faint: #5b6270;
+  --faint: #7d8493;
   --line: #22252d;
   --line-strong: #2f333d;
   --accent: #d6f740;        /* neon lime — used as a FILL (dark text sits on it) */
@@ -32,7 +32,7 @@
   --bg-press: #e9eeed;
   --ink: #40514E;
   --muted: #5f716d;
-  --faint: #93a09c;
+  --faint: #66756f;
   --line: #e4e7e6;
   --line-strong: #ccd4d2;
   --accent: #30E3CA;        /* teal — used as a FILL (dark text sits on it) */
@@ -305,8 +305,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .switch input:checked + .slider .spaceship { opacity: 1; transform: translateY(-100px) translateX(40px); }
 
 /* availability status — a bracketed nav item, right-aligned like the others */
+.nav-avail-item { margin-left: auto; list-style: none; }
 .nav-avail-status {
-  margin-left: auto;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -426,7 +426,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 .xp summary:hover { background: var(--bg-raise); }
 
-.xp-role h3 {
+.xp-role h2 {
   font-family: var(--font-display);
   font-size: 1.45rem;
   font-weight: 500;
@@ -965,7 +965,7 @@ pre:hover .copy-code { opacity: 1; }
 @media (max-width: 768px) {
   :root { --gutter: 1.25rem; }
   .container { padding-bottom: 1.25rem; }
-  .nav-avail-status { display: none; }
+  .nav-avail-item { display: none; }
 
   .sec { padding-top: 3rem; }
   .hero { padding-top: 3.5rem; }

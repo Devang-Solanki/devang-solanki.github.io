@@ -36,7 +36,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     
 <script>/* theme-init */(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 
@@ -47,7 +48,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <main class="container">
         <nav class="main-nav">
             <ul>
                 <li><a href="../index.html" class="nav-home">Devang Solanki</a></li>
@@ -146,7 +147,7 @@ pip install frida</code></pre>
                 <li><a href="../blogs.html">← Back to Blogs</a></li>
             </ul>
         </nav>
-    </div>
+    </main>
     
     <!-- Back to top button -->
     <a href="#" class="back-to-top" id="backToTop">↑</a>

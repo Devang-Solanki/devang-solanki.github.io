@@ -56,7 +56,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (navList) {
     const status = document.createElement('span');
     status.className = 'nav-avail-status';
-    navList.appendChild(status);
+    const statusItem = document.createElement('li');
+    statusItem.className = 'nav-avail-item';
+    statusItem.appendChild(status);
+    navList.appendChild(statusItem);
 
     const istHM = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false });
     const tick = () => {
