@@ -3,18 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page not found — Devang Solanki</title>
+    <title>404 — Devang Solanki</title>
     <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0b0c0f">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script>/* theme-init */(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+
     <link rel="stylesheet" href="/assets/css/custom.css">
+    <style>
+        /* ---- 404: crash-dump terminal ---------------------------------- */
+        html, body { height: 100%; }
+        body { overflow: hidden; }
+
+        .dump {
+            --fs: clamp(10px, 0.82vw, 13px);
+            height: 100vh;
+            height: 100dvh;
+            display: grid;
+            grid-template-columns: 1fr 1.25fr 1.25fr;
+            gap: 0 clamp(1.5rem, 3vw, 4rem);
+            padding: clamp(1rem, 2.2vw, 2rem) var(--gutter);
+            font-family: var(--font-mono);
+            font-size: var(--fs);
+            line-height: 1.5;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink);
+        }
+        .col { display: flex; flex-direction: column; min-width: 0; position: relative; }
+        .col-body { flex: 1; min-height: 0; overflow: hidden; }
+        .col-foot { padding-top: 1rem; white-space: nowrap; }
+        .col p { white-space: pre; overflow: hidden; text-overflow: clip; }
+        .col p:empty::before { content: '\00a0'; }
+        .gap { height: 1.5em; }
+
+        .muted { color: var(--muted); }
+        .faint { color: var(--faint); }
+        .acc { color: var(--accent-text); }
+        .err { color: var(--red); }
+        .inv { background: var(--accent); color: var(--accent-ink); padding: 0 0.35em; }
+        .bar { display: inline-block; width: 3.6em; height: 0.95em; background: var(--accent); vertical-align: -0.12em; margin-right: 0.6em; }
+
+        /* line numbers down the right edge of the centre column */
+        .ln { position: relative; padding-right: 3.5em; }
+        .ln::after { content: attr(data-ln); position: absolute; right: 0; top: 0; color: var(--faint); }
+
+        .left-mid { margin-top: 30vh; }
+
+        .col a { color: inherit; text-decoration: none; }
+        .col a:hover { color: var(--accent-text); }
+        .col a:hover::before { content: ''; }
+
+        /* glyph noise / progress strip */
+        .strip {
+            height: 1.2em;
+            margin: 1em 0;
+            background: repeating-linear-gradient(90deg, var(--accent) 0 0.55em, transparent 0.55em 0.7em);
+            opacity: 0.35;
+            -webkit-mask: linear-gradient(90deg, #000 78%, transparent 78% 80%, #000 80% 86%, transparent 86% 87%, #000 87%);
+                    mask: linear-gradient(90deg, #000 78%, transparent 78% 80%, #000 80% 86%, transparent 86% 87%, #000 87%);
+        }
+
+        /* the stretched "echo" — each copy taller and more torn than the last */
+        .col .echo { display: block; position: relative; color: var(--accent-text); line-height: 1; padding-top: 0.15em; }
+        .echo span {
+            display: block;
+            white-space: pre;
+            overflow: hidden;
+            height: calc(0.92em * var(--s));
+        }
+        .echo span i {
+            display: block;
+            font-style: normal;
+            font-weight: 700;
+            transform-origin: top left;
+            transform: scale(1, var(--s));
+            margin-top: calc(-0.1em * var(--s));
+        }
+        .echo span:nth-child(n+3) {
+            -webkit-mask: repeating-linear-gradient(180deg, #000 0 var(--band), transparent var(--band) calc(var(--band) + 3px));
+                    mask: repeating-linear-gradient(180deg, #000 0 var(--band), transparent var(--band) calc(var(--band) + 3px));
+        }
+
+        /* boot sequence: lines appear one at a time */
+        .js .boot { visibility: hidden; }
+        .js .boot.on { visibility: visible; }
+        .js .echo span { transform: scaleY(0); transform-origin: top; transition: transform 0.35s steps(4); }
+        .js .echo.on span { transform: scaleY(1); }
+        .echo.on span:nth-child(2) { transition-delay: 0.08s; }
+        .echo.on span:nth-child(3) { transition-delay: 0.16s; }
+        .echo.on span:nth-child(4) { transition-delay: 0.24s; }
+        .echo.on span:nth-child(5) { transition-delay: 0.32s; }
+        .echo.on span:nth-child(6) { transition-delay: 0.4s; }
+
+        .glitch { animation: jitter 3.2s steps(1) infinite; }
+        @keyframes jitter {
+            0%, 92%, 100% { transform: none; }
+            93% { transform: translateX(3px); }
+            95% { transform: translateX(-2px) skewX(-6deg); }
+            97% { transform: translateX(1px); }
+        }
+
+        .flash { animation: flash 0.25s steps(2) 3; }
+        @keyframes flash { 50% { background: var(--accent); color: var(--accent-ink); } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .js .boot { visibility: visible; }
+            .js .echo span { transform: none; transition: none; }
+            .glitch { animation: none; }
+        }
+
+        @media (max-width: 960px) {
+            body { overflow: auto; }
+            .dump {
+                height: auto;
+                grid-template-columns: 1fr;
+                --fs: 11px;
+                padding: 1.25rem;
+            }
+            .col { margin-bottom: 2rem; }
+            .col-body { overflow: visible; }
+            .left-mid { margin-top: 1.5rem; }
+            .col p { white-space: pre-wrap; }
+            .col-foot { padding-top: 0.75rem; }
+            .hide-sm { display: none; }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="content-header">
-            <h1>404 — not found</h1>
-            <div class="content-meta">This page doesn't exist. Try the <a href="/" style="color:var(--accent);">home page</a> or the <a href="/blogs.html" style="color:var(--accent);">blogs index</a>.</div>
-        </div>
-    </div>
+    <main class="dump" id="dump">
+        <!-- LEFT ------------------------------------------------------------>
+        <section class="col">
+            <div class="col-body">
+                <p class="boot"><a href="/" class="acc">:/ DEVANGHACKS.IN</a></p>
+                <div class="left-mid">
+                    <p class="boot">SYSTEM: DEVANGHACKS_404_HANDLER</p>
+                    <p class="boot">RUNNING ERROR ROUTINE...</p>
+                    <p class="boot err">&gt;&gt;&gt; ROUTE_NOT_FOUND_EXCEPTION</p>
+                    <div class="gap"></div>
+                    <p class="boot">REQUEST : GET <span class="acc" data-path>/??</span></p>
+                    <p class="boot">HOST    : DEVANGHACKS.IN</p>
+                    <p class="boot">REFERER : <span class="muted" data-ref>DIRECT</span></p>
+                    <p class="boot">STATUS  : NULL_ROUTE_REFERENCE</p>
+                    <p class="boot">RETURN CODE: <span class="err">-404</span></p>
+                </div>
+            </div>
+            <div class="col-foot boot">&gt; 404 PAGE NOT FOUND</div>
+        </section>
+
+        <!-- CENTRE ---------------------------------------------------------->
+        <section class="col">
+            <div class="col-body">
+                <p class="boot ln" data-ln="10"><span class="bar"></span>404 ERROR : PAGE NOT FOUND</p>
+                <p class="boot ln" data-ln="20">DH-404 // ROUTE RETRIEVAL FAILURE</p>
+                <p class="boot ln" data-ln="30">LOC 0x194: ATTEMPTED TO LOAD [<span data-path>/??</span>]</p>
+                <p class="boot ln" data-ln="40">DEVANG WILL TRY TO PATCH THIS.</p>
+                <p class="boot ln" data-ln="50">PROBABLY. EVENTUALLY.</p>
+                <div class="gap"></div>
+                <p class="boot">SYSTEM TRACE:</p>
+                <div class="gap"></div>
+                <p class="boot">0001 LOAD /HOME          <span class="acc">200</span></p>
+                <p class="boot">0002 RUN  /BLOGS         <span class="acc">200</span></p>
+                <p class="boot">0003 RUN  /TOOLS         <span class="acc">200</span></p>
+                <p class="boot">0004 GET  <span data-path>/??</span>  <span class="err">404</span></p>
+                <div class="gap"></div>
+                <p class="boot">IF LOST == TRUE THEN</p>
+                <p class="boot">  PRINT <span class="acc">"NOTHING IS LOST — ONLY UNDISCOVERED."</span></p>
+                <div class="gap"></div>
+                <p class="boot ln" data-ln="60">&gt; RECON COMPLETE</p>
+                <p class="boot ln" data-ln="70">&gt; 0 ASSETS FOUND ON THIS PATH</p>
+                <p class="boot ln" data-ln="80">&gt; REDIRECT PATH UNDEFINED</p>
+                <p class="boot ln" data-ln="90">&gt; INITIATE MANUAL REBOOT (HOME)</p>
+                <div class="gap hide-sm"></div>
+                <p class="boot hide-sm">0001 - FUZZ /FUZZ ............ <span class="muted">NO HITS</span></p>
+                <p class="boot hide-sm">0002 - DIRBUST WORDLIST ...... <span class="muted">EXHAUSTED</span></p>
+                <p class="boot hide-sm">0003 - CHECK WAYBACK ......... <span class="muted">TIMEOUT</span></p>
+                <p class="boot hide-sm">0004 - GREP SECRETS .......... <span class="muted">NONE. I CHECKED.</span></p>
+                <div class="gap"></div>
+                <p class="boot">RECOVERY STEPS:</p>
+                <p class="boot"><a href="/blogs.html">&gt; READ BLOGS</a></p>
+                <p class="boot"><a href="/tools.html">&gt; BROWSE TOOLS</a></p>
+                <p class="boot ln" data-ln="100"><a href="/" class="acc">&gt; GO HOME</a></p>
+                <a href="/" class="echo glitch" aria-hidden="true" tabindex="-1" data-echo="&gt; GO HOME"></a>
+            </div>
+            <div class="col-foot boot"><a href="/" id="reboot">&gt; PRESS <span class="inv">ENTER</span> TO REBOOT</a></div>
+        </section>
+
+        <!-- RIGHT ----------------------------------------------------------->
+        <section class="col">
+            <div class="col-body">
+                <p class="boot">NOTE_01: NOT EVERY 404 IS A DEAD END.</p>
+                <p class="boot">NOTE_02: SOMETIMES THE BUG IS THE PATH.</p>
+                <p class="boot">NOTE_03: FUZZERS LOVE THIS PAGE.</p>
+                <p class="boot">NOTE_04: EVERYTHING BROKEN STILL LEAKS SOMETHING.</p>
+                <div class="gap"></div>
+                <p class="boot muted">&gt; INITIALIZING 404 FRAMEWORK</p>
+                <p class="boot muted">&gt; SYSTEM CLOCK SYNC: <span data-clock>±0.0001S</span></p>
+                <p class="boot muted">&gt; BOOT SECTOR CLEAN</p>
+                <div class="strip boot"></div>
+                <p class="boot">&gt; TRACE INDICATES AN ABSENCE, NOT A BREACH.</p>
+                <p class="boot">&gt; NO CORRUPTION DETECTED. NO DELETION LOGGED.</p>
+                <p class="boot">&gt;</p>
+                <p class="boot">&gt; THE SERVER REPORTS SILENCE — NOT ERROR.</p>
+                <div class="gap"></div>
+                <p class="boot acc">[MEMORY DUMP /VAR/LOG/404]</p>
+                <div class="gap"></div>
+                <p class="boot hide-sm"><span class="faint">0001</span> &gt; THE SERVER REMEMBERS ROUTES, NOT YOU.</p>
+                <p class="boot hide-sm"><span class="faint">0002</span> &gt; GHOST REQUESTS FROM OLD JEKYLL DAYS.</p>
+                <p class="boot hide-sm"><span class="faint">0003</span> &gt; SOMEONE TYPED A PATH THAT NEVER EXISTED.</p>
+                <p class="boot hide-sm"><span class="faint">0004</span> &gt; OR A LINK ROTTED. IT HAPPENS.</p>
+                <p class="boot hide-sm"><span class="faint">0005</span> &gt; "THIS ISN'T A VULN," IT THOUGHT.</p>
+                <p class="boot hide-sm"><span class="faint">0006</span> &gt; "...BUT IT'S WORTH A REPORT."</p>
+                <p class="boot hide-sm"><span class="faint">0007</span> &gt; END OF MEMORY SECTOR 404.</p>
+                <div class="gap"></div>
+                <p class="boot">&gt;&gt;&gt; RUNNING SELF-DIAGNOSIS</p>
+                <p class="boot">&gt;&gt;&gt; LOG MESSAGE:</p>
+                <p class="boot">&gt;&gt;&gt; <span class="acc">"DEAR USER, YOU FOUND AN UNMAPPED ENDPOINT.</span></p>
+                <p class="boot">&gt;&gt;&gt; <span class="acc">NO BOUNTY FOR THIS ONE, SADLY."</span></p>
+                <p class="boot">&gt;&gt;&gt;</p>
+                <p class="boot">&gt;&gt;&gt; ATTEMPTING TO RENDER THE VOID AS TEXT...</p>
+                <div class="echo glitch" aria-hidden="true" data-echo="&gt;&gt;&gt; ATTEMPTING TO RENDER THE VOID AS TEXT..."></div>
+            </div>
+            <div class="col-foot boot"><a href="#" id="esc">OR PRESS <span class="inv">ESC</span> IF YOU DARE.</a></div>
+        </section>
+    </main>
+
+    <script>
+    (function () {
+        document.documentElement.classList.add('js');
+
+        // show the actual path that was requested
+        var path = (location.pathname + location.search).toUpperCase();
+        if (path.length > 34) path = path.slice(0, 33) + '…';
+        document.querySelectorAll('[data-path]').forEach(function (el) { el.textContent = path; });
+        if (document.referrer) {
+            try { document.querySelector('[data-ref]').textContent = new URL(document.referrer).host.toUpperCase(); } catch (e) {}
+        }
+        var clk = document.querySelector('[data-clock]');
+        if (clk) clk.textContent = '±' + (Math.random() * 0.001).toFixed(4) + 'S';
+
+        // build the stretched echoes: each copy taller and more torn
+        var SCALES = [1.4, 2, 2.6, 2.6, 3.4, 4.2];
+        document.querySelectorAll('.echo').forEach(function (el) {
+            var text = el.getAttribute('data-echo');
+            SCALES.forEach(function (s, i) {
+                var span = document.createElement('span');
+                span.style.setProperty('--s', s);
+                span.style.setProperty('--band', (14 - i * 2) + 'px');
+                var inner = document.createElement('i');
+                inner.textContent = text;
+                span.appendChild(inner);
+                el.appendChild(span);
+            });
+        });
+
+        // boot sequence: reveal each column line by line, in parallel
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var cols = Array.prototype.slice.call(document.querySelectorAll('.col'));
+        cols.forEach(function (col, c) {
+            var items = Array.prototype.slice.call(col.querySelectorAll('.boot, .echo'));
+            items.forEach(function (el, i) {
+                if (reduce) { el.classList.add('on'); return; }
+                setTimeout(function () { el.classList.add('on'); }, 120 + c * 90 + i * 45);
+            });
+        });
+
+        // ENTER reboots (home), ESC goes back where you came from
+        var go = function (el, fn) { el.classList.add('flash'); setTimeout(fn, reduce ? 0 : 450); };
+        var back = function () {
+            if (history.length > 1 && document.referrer) history.back();
+            else location.href = '/';
+        };
+        document.getElementById('esc').addEventListener('click', function (e) { e.preventDefault(); go(this, back); });
+        document.addEventListener('keydown', function (e) {
+            if (e.metaKey || e.ctrlKey || e.altKey) return;
+            if (e.key === 'Enter' && !(e.target && e.target.closest && e.target.closest('a'))) {
+                go(document.getElementById('reboot'), function () { location.href = '/'; });
+            } else if (e.key === 'Escape') {
+                go(document.getElementById('esc'), back);
+            }
+        });
+    })();
+    </script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
