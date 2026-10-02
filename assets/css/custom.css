@@ -4,6 +4,38 @@
    Display: Space Grotesk · Mono: JetBrains Mono
    ============================================================ */
 
+/* self-hosted variable fonts (latin) + metric-matched fallbacks so the swap doesn't shift layout */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../fonts/space-grotesk-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('../fonts/jetbrains-mono-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk Fallback';
+  src: local('Arial'), local('Helvetica'), local('Liberation Sans'), local('Roboto');
+  size-adjust: 103.8%;
+  ascent-override: 94.8%;
+  descent-override: 28.1%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'JetBrains Mono Fallback';
+  src: local('Courier New'), local('Liberation Mono'), local('Menlo'), local('Roboto Mono');
+  size-adjust: 100%;
+  ascent-override: 102%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
+
 :root {
   --bg: #0b0c0f;
   --bg-raise: #111318;
@@ -16,11 +48,12 @@
   --accent: #d6f740;        /* neon lime — used as a FILL (dark text sits on it) */
   --accent-ink: #0b0c0f;    /* text/icon colour that sits ON the accent fill */
   --accent-text: #d6f740;   /* accent used AS text on the page background */
+  --code-ink: #d6f740;      /* inline code text on --bg-press */
   --red: #ff5f56;
   --nav-bg: rgba(11, 12, 15, 0.88);
   --dot: rgba(143, 150, 163, 0.07);
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-  --font-display: 'Space Grotesk', 'JetBrains Mono', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', 'Fira Code', 'Consolas', monospace;
+  --font-display: 'Space Grotesk', 'Space Grotesk Fallback', 'JetBrains Mono', system-ui, sans-serif;
   --gutter: clamp(1.5rem, 5vw, 5rem);
 }
 
@@ -38,6 +71,7 @@
   --accent: #30E3CA;        /* teal — used as a FILL (dark text sits on it) */
   --accent-ink: #0c332e;    /* text/icon colour that sits ON the teal fill */
   --accent-text: #2F89FC;   /* blue — accent used AS text on the page background */
+  --code-ink: #1a5fc4;      /* darker blue: #2F89FC fails contrast on --bg-press */
   --red: #d8362b;
   --nav-bg: rgba(245, 245, 245, 0.9);
   --dot: rgba(64, 81, 78, 0.08);
@@ -806,7 +840,7 @@ nav:not(.main-nav) a::before { content: '› '; color: var(--accent-text); }
 
 .content-body code {
   background: var(--bg-press);
-  color: var(--accent-text);
+  color: var(--code-ink);
   padding: 0.15rem 0.4rem;
   font-family: var(--font-mono);
   font-size: 0.82em;

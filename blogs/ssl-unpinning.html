@@ -34,10 +34,8 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","datePublished":"2024-02-01","dateModified":"2024-02-01","headline":"SSL Unpinning Made Easy","description":"A simple guide to disable SSL pinning in Android apps using Frida","url":"https://devanghacks.in/blogs/ssl-unpinning.html","mainEntityOfPage":"https://devanghacks.in/blogs/ssl-unpinning.html","image":"https://devanghacks.in/assets/images/og.png","author":{"@type":"Person","name":"Devang Solanki","url":"https://devanghacks.in/"},"publisher":{"@type":"Person","name":"Devang Solanki","url":"https://devanghacks.in/"}}</script>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
     
 <script>/* theme-init */(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 
@@ -79,7 +77,7 @@
                 <li><strong>SSL Session with the Server (Website or Application):</strong> Simultaneously, Burp Suite initiates a separate SSL session with the destination server (website or application). It creates a secure connection using the server's SSL certificate to ensure that the intercepted data can be forwarded securely after inspection or modification.</li>
             </ol>
 
-            <img src="../assets/images/SSL_Unpinning/burpsuite-working.png" alt="BurpSuite Working Diagram" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" width="2268" height="1194" src="../assets/images/SSL_Unpinning/burpsuite-working.png" alt="BurpSuite Working Diagram" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <h2>What is SSL Pinning</h2>
             <p>SSL pinning is a security technique used by apps to prevent unauthorized interception of their HTTPS traffic, aiming to enhance security by ensuring that communication occurs only with specific trusted servers.</p>
@@ -89,7 +87,7 @@
             <h2>Disabling SSL Pinning on Blinkit</h2>
             <p>In this demonstration, we'll attempt to disable SSL Pinning in an APK of Blinkit. I'll use an emulator from Android Studio, and I have installed Android 13 on the emulator device.</p>
 
-            <img src="../assets/images/SSL_Unpinning/android_emulator.png" alt="Android Emulator" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" width="487" height="880" src="../assets/images/SSL_Unpinning/android_emulator.png" alt="Android Emulator" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <p>To bypass SSL Pinning, we'll use Frida. First, install Frida on your device by running these commands:</p>
             <pre><code>pip install frida-tools
@@ -97,27 +95,27 @@ pip install frida</code></pre>
 
             <p>To check if it's installed properly, use <code>frida --version</code>.</p>
 
-            <img src="../assets/images/SSL_Unpinning/frida_version_check.png" alt="Frida Version Check" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" width="410" height="52" src="../assets/images/SSL_Unpinning/frida_version_check.png" alt="Frida Version Check" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <p>Remember this version number; it's crucial for downloading the matching Frida server. Head to the Frida release page at <code>https://github.com/frida/frida/releases/</code> and get the Frida server that matches your Frida version and your Android emulator's architecture.</p>
 
             <p>In my situation, my Frida version was 16.1.8, and I needed the x86 architecture. So, I downloaded the highlighted Frida-Server shown in the image below.</p>
 
-            <img src="../assets/images/SSL_Unpinning/frida_server_download.png" alt="Frida Server Download" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" width="667" height="233" src="../assets/images/SSL_Unpinning/frida_server_download.png" alt="Frida Server Download" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <p>Extract the Frida Server using a tool you like. I used WSL. Then, use ADB to push it into your Android emulator using the below command.</p>
 
-            <img src="../assets/images/SSL_Unpinning/pushing_frida_emulator.png" alt="Pushing Frida to Emulator" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" width="798" height="89" src="../assets/images/SSL_Unpinning/pushing_frida_emulator.png" alt="Pushing Frida to Emulator" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <p>Next, use the ADB shell to access the emulator and initiate the Frida server.</p>
 
-            <img src="../assets/images/SSL_Unpinning/running_frida_server.png" alt="Running Frida Server" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" width="690" height="194" src="../assets/images/SSL_Unpinning/running_frida_server.png" alt="Running Frida Server" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <p>To confirm that the Frida server is running properly, enter this command: <code>frida-ps -U</code></p>
 
             <p>Now that Frida is set up, open Burp Suite and set it up to listen on your network and export the CA certificate from Burp Suite's proxy settings.</p>
 
-            <img src="../assets/images/SSL_Unpinning/burp_proxy_settings.png" alt="Burp Proxy Settings" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" width="1501" height="932" src="../assets/images/SSL_Unpinning/burp_proxy_settings.png" alt="Burp Proxy Settings" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <p>Next, clone this repository: <code>https://github.com/httptoolkit/frida-interception-and-unpinning</code>. This repo by HTTP toolkit contains Frida scripts designed to do everything required for fully automated HTTPS MitM interception on mobile devices.</p>
 
@@ -125,11 +123,11 @@ pip install frida</code></pre>
 
             <p>Burp Suite usually exports the CA certificate in a format called DER. To convert it into PEM format, use a tool available at <code>http://lapo.it/asn1js/</code>. Upload your CA certificate there, and it'll give you the CA certificate in PEM format. Then, add this PEM-formatted certificate to the "config.js" file.</p>
 
-            <img src="../assets/images/SSL_Unpinning/convert_der_to_pem.png" alt="Convert DER to PEM" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" width="1198" height="319" src="../assets/images/SSL_Unpinning/convert_der_to_pem.png" alt="Convert DER to PEM" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <p>Once you've added your PEM certificate, your config file should look similar to the image below</p>
 
-            <img src="../assets/images/SSL_Unpinning/config_file.png" alt="Config File" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" width="855" height="588" src="../assets/images/SSL_Unpinning/config_file.png" alt="Config File" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <p>Now, execute the following command:</p>
             <pre><code>frida -U -l ./config.js -l ./native-connect-hook.js -l ./android/android-proxy-override.js -l ./android/android-system-certificate-injection.js -l ./android/android-certificate-unpinning.js -l ./android/android-certificate-unpinning-fallback.js -f com.grofers.customerapp</code></pre>
@@ -138,7 +136,7 @@ pip install frida</code></pre>
 
             <p>This command will spawn the blinkit app and you'll observe its requests appearing in the Burp Suite history tab.</p>
 
-            <img src="../assets/images/SSL_Unpinning/intercepting_request.png" alt="Intercepting Request" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" width="1919" height="983" src="../assets/images/SSL_Unpinning/intercepting_request.png" alt="Intercepting Request" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
         </div>
 
         <nav style="margin-top: 2rem;">

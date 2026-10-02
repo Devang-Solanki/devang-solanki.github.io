@@ -34,10 +34,8 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","datePublished":"2021-09-22","dateModified":"2021-09-22","headline":"H@ctivityCon 2021 - CTF Writeups","description":"My first CTF competition writeups from H@ctivityCon 2021 organized by HackerOne","url":"https://devanghacks.in/writeups/hacktivitycon-2021.html","mainEntityOfPage":"https://devanghacks.in/writeups/hacktivitycon-2021.html","image":"https://devanghacks.in/assets/images/og.png","author":{"@type":"Person","name":"Devang Solanki","url":"https://devanghacks.in/"},"publisher":{"@type":"Person","name":"Devang Solanki","url":"https://devanghacks.in/"}}</script>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
     
 <script>/* theme-init */(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 
@@ -64,7 +62,7 @@
         </div>
 
         <div class="content-body">
-            <img src="https://user-images.githubusercontent.com/75718583/134384310-731ad34c-5c4b-4ea2-93a4-bbde11ed20ef.png" alt="H@ctivityCon 2021 Logo" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" src="https://user-images.githubusercontent.com/75718583/134384310-731ad34c-5c4b-4ea2-93a4-bbde11ed20ef.png" alt="H@ctivityCon 2021 Logo" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <p>H@cktivityCon is a conference organized by HackerOne every year. This was my first ever conference and CTF competition. Even though I had little experience with CTF (Mostly from TryHackMe) I had difficulty solving many problems. I was able to solve some entry level challenges. Here are some writeups for H@ctivityCon CTF which I was able to solve.</p>
 
@@ -79,7 +77,7 @@
                 <li>Then I checked the file headers by using <code>hexdump -n 36 -c 2ez</code> command</li>
             </ul>
 
-            <img src="https://user-images.githubusercontent.com/75718583/134359824-b154eb67-2f7a-4fae-ad04-ff70fab26fc3.png" alt="Hexdump output showing JFIF header" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" src="https://user-images.githubusercontent.com/75718583/134359824-b154eb67-2f7a-4fae-ad04-ff70fab26fc3.png" alt="Hexdump output showing JFIF header" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <ul>
                 <li>JFIF header means a jpeg file</li>
@@ -96,7 +94,7 @@
                 <li>On viewing spectrum of wav file we get flag at the end of audio file.</li>
             </ul>
 
-            <img src="https://user-images.githubusercontent.com/75718583/134361623-9e07bb83-250e-4b3a-80fa-82d880b561ec.png" alt="Audio spectrum showing flag" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" src="https://user-images.githubusercontent.com/75718583/134361623-9e07bb83-250e-4b3a-80fa-82d880b561ec.png" alt="Audio spectrum showing flag" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <h2>Six Four Over Two</h2>
             <p>We were given a cipher text which looked like base32 so I decoded it and got the flag</p>
@@ -111,7 +109,7 @@ flag{a45d4e70bfc407645185dd9114f9c0ef}</code></pre>
                 <li>Which looked like this:</li>
             </ul>
 
-            <img src="https://user-images.githubusercontent.com/75718583/134370617-c740cd92-9184-4d9a-bd5c-7441d61a0050.png" alt="ASCII art showing base64 string" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" src="https://user-images.githubusercontent.com/75718583/134370617-c740cd92-9184-4d9a-bd5c-7441d61a0050.png" alt="ASCII art showing base64 string" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <ul>
                 <li>It's actually a base64 string and converting it gives the flag.</li>
@@ -194,7 +192,7 @@ flag{72d8784a5da3a8f56d2106c12dbab989}</code></pre>
                 <li><code>/home/user; cat /home/user/flag.txt</code></li>
             </ul>
 
-            <img src="https://user-images.githubusercontent.com/75718583/134377008-9485de49-18dc-4e98-8324-165bc6178c85.png" alt="Command injection showing flag" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" src="https://user-images.githubusercontent.com/75718583/134377008-9485de49-18dc-4e98-8324-165bc6178c85.png" alt="Command injection showing flag" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <h2>Shelle</h2>
             <p>In this challenge, we got a shell with some limitations. We can only use the 7 commands cat, ls, pwd, whoami, ps, id, echo as mentioned in the assignment.txt file.</p>

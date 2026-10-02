@@ -12,13 +12,6 @@
     root.setAttribute('data-theme', t);
   }
 
-  // Article pages only load JetBrains Mono; make sure the display font is there too.
-  if (!document.querySelector('link[href*="Space+Grotesk"]')) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap';
-    document.head.appendChild(link);
-  }
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -196,10 +189,13 @@ document.addEventListener('DOMContentLoaded', function () {
     pills.forEach(p => {
       const t = p.dataset.filter;
       const n = t === 'all' ? rows.length : rows.filter(r => r.dataset.type === t).length;
-      const c = document.createElement('span');
-      c.className = 'count';
+      let c = p.querySelector('.count');
+      if (!c) {
+        c = document.createElement('span');
+        c.className = 'count';
+        p.appendChild(c);
+      }
       c.textContent = n;
-      p.appendChild(c);
     });
 
     const fromHash = () => {

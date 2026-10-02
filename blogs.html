@@ -33,10 +33,8 @@
     <!-- Structured data -->
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <script>/* theme-init */(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 
@@ -67,17 +65,17 @@
                 <input class="search" type="search" placeholder="search writing" aria-label="Search writing">
             </div>
             <div class="filter-pills">
-                <button data-filter="all" class="active">All</button>
-                <button data-filter="blog">Blog</button>
-                <button data-filter="bugbounty">Bug Bounty</button>
-                <button data-filter="writeup">Writeup</button>
+                <button data-filter="all" class="active">All<span class="count">9</span></button>
+                <button data-filter="blog">Blog<span class="count">6</span></button>
+                <button data-filter="bugbounty">Bug Bounty<span class="count">1</span></button>
+                <button data-filter="writeup">Writeup<span class="count">2</span></button>
             </div>
         </div>
 
         <div class="row-list" id="writingList">
             <a class="row" href="https://redhuntlabs.com/blog/echoes-of-ai-exposure-thousands-of-secrets-leaking-through-vibe-coded-sites-wave-15-project-resonance" target="_blank" rel="noopener" data-type="blog" data-date="2025-09-23" data-tags="ai secrets research vibe coding resonance">
                 <div class="row-main">
-                    <h3>Echoes of AI Exposure<span class="arrow">↗</span></h3>
+                    <h2>Echoes of AI Exposure<span class="arrow">↗</span></h2>
                     <p>Thousands of secrets leaking through vibe-coded sites — has one-prompt web dev come at a hidden security cost? Project Resonance, Wave 15.</p>
                     <div class="row-tags"><span>AI</span><span>Secrets</span><span>Research</span></div>
                 </div>
@@ -86,7 +84,7 @@
 
             <a class="row" href="https://redhuntlabs.com/blog/the-state-of-the-web-technology-adoption-and-security-issues-in-the-internets-top-1-million-sites-wave-12-project-resonance" target="_blank" rel="noopener" data-type="blog" data-date="2024-06-12" data-tags="research recon tranco top 1 million web technology">
                 <div class="row-main">
-                    <h3>The State of the Web<span class="arrow">↗</span></h3>
+                    <h2>The State of the Web<span class="arrow">↗</span></h2>
                     <p>A closer look at the Tranco Top 1 Million sites — the technologies powering them and the vulnerabilities underneath. Project Resonance, Wave 12.</p>
                     <div class="row-tags"><span>Research</span><span>Recon</span><span>Web</span></div>
                 </div>
@@ -95,7 +93,7 @@
 
             <a class="row" href="blogs/goroutines-waitgroups.html" data-type="blog" data-date="2024-03" data-tags="go golang concurrency goroutines waitgroups performance">
                 <div class="row-main">
-                    <h3>Concurrent Tasks with Goroutines &amp; WaitGroups<span class="arrow">→</span></h3>
+                    <h2>Concurrent Tasks with Goroutines &amp; WaitGroups<span class="arrow">→</span></h2>
                     <p>Exploring the efficiency of Golang's goroutines and waitgroups — and how they help you write dramatically faster tooling.</p>
                     <div class="row-tags"><span>Go</span><span>Concurrency</span></div>
                 </div>
@@ -104,7 +102,7 @@
 
             <a class="row" href="blogs/ssl-unpinning.html" data-type="blog" data-date="2024-02" data-tags="android mobile frida ssl pinning burpsuite https">
                 <div class="row-main">
-                    <h3>SSL Unpinning Made Easy<span class="arrow">→</span></h3>
+                    <h2>SSL Unpinning Made Easy<span class="arrow">→</span></h2>
                     <p>How BurpSuite intercepts HTTPS, and a simple Frida workflow to strip SSL pinning from Android apps — written so beginners can follow along.</p>
                     <div class="row-tags"><span>Android</span><span>Frida</span><span>Mobile</span></div>
                 </div>
@@ -113,7 +111,7 @@
 
             <a class="row" href="blogs/graphql-exploitation.html" data-type="blog" data-date="2023-07" data-tags="graphql web api introspection injection">
                 <div class="row-main">
-                    <h3>Exploiting GraphQL for Fun and Bounties<span class="arrow">→</span></h3>
+                    <h2>Exploiting GraphQL for Fun and Bounties<span class="arrow">→</span></h2>
                     <p>GraphQL lets clients ask for exactly the data they need — and sometimes far more than they should get. A practical tour of the attack surface.</p>
                     <div class="row-tags"><span>GraphQL</span><span>Web</span><span>API</span></div>
                 </div>
@@ -122,7 +120,7 @@
 
             <a class="row" href="bugbounty/account-takeover.html" data-type="bugbounty" data-date="2022-07" data-tags="account takeover ato critical hackerone authentication">
                 <div class="row-main">
-                    <h3>0-Click Account Takeover<span class="arrow">→</span></h3>
+                    <h2>0-Click Account Takeover<span class="arrow">→</span></h2>
                     <p>My first published writeup — and my first critical. A zero-interaction account takeover on a private HackerOne program.</p>
                     <div class="row-tags"><span>ATO</span><span>Auth</span><span>HackerOne</span></div>
                 </div>
@@ -131,7 +129,7 @@
 
             <a class="row" href="blogs/saml-101.html" data-type="blog" data-date="2021-11" data-tags="saml sso authentication xml identity provider">
                 <div class="row-main">
-                    <h3>SAML 101<span class="arrow">→</span></h3>
+                    <h2>SAML 101<span class="arrow">→</span></h2>
                     <p>The XML-based open standard behind most Single Sign-On — how identity data moves between an identity provider and a service provider.</p>
                     <div class="row-tags"><span>SAML</span><span>SSO</span><span>Auth</span></div>
                 </div>
@@ -140,7 +138,7 @@
 
             <a class="row" href="writeups/hacktivitycon-2021.html" data-type="writeup" data-date="2021-09" data-tags="ctf hacktivitycon hackerone 2021 misc">
                 <div class="row-main">
-                    <h3>H@cktivityCon 2021<span class="arrow">→</span></h3>
+                    <h2>H@cktivityCon 2021<span class="arrow">→</span></h2>
                     <p>HackerOne's annual CTF — my first-ever competition. With little prior experience I still cracked a handful of challenges; here's how.</p>
                     <div class="row-tags"><span>CTF</span><span>Misc</span></div>
                 </div>
@@ -149,7 +147,7 @@
 
             <a class="row" href="writeups/haskhell.html" data-type="writeup" data-date="2021-08" data-tags="ctf haskhell web linux reverse shell flask privilege escalation">
                 <div class="row-main">
-                    <h3>Haskhell<span class="arrow">→</span></h3>
+                    <h2>Haskhell<span class="arrow">→</span></h2>
                     <p>Teach your CS professor that his PhD isn't in security. A TryHackMe room — code execution to a reverse shell and privilege escalation.</p>
                     <div class="row-tags"><span>CTF</span><span>Web</span><span>Linux</span></div>
                 </div>

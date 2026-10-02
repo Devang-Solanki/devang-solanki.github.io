@@ -34,10 +34,8 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","datePublished":"2024-03-01","dateModified":"2024-03-01","headline":"Managing Concurrent Tasks with Goroutines and WaitGroups","description":"Exploring the efficiency of Golang's Goroutines and Waitgroups for faster code","url":"https://devanghacks.in/blogs/goroutines-waitgroups.html","mainEntityOfPage":"https://devanghacks.in/blogs/goroutines-waitgroups.html","image":"https://devanghacks.in/assets/images/og.png","author":{"@type":"Person","name":"Devang Solanki","url":"https://devanghacks.in/"},"publisher":{"@type":"Person","name":"Devang Solanki","url":"https://devanghacks.in/"}}</script>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
     
 <script>/* theme-init */(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 
@@ -169,7 +167,7 @@ func main() {
     wg.Wait()
 }</code></pre>
 
-            <img src="../assets/images/goroutine_waitgroup/visualize-goroutine.png" alt="Visualize Goroutine Performance" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" width="2209" height="990" src="../assets/images/goroutine_waitgroup/visualize-goroutine.png" alt="Visualize Goroutine Performance" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <p>In this approach, the efficiency of the entire code is determined by its slowest component, often referred to as the 'weakest link,' which, in turn, impacts the overall execution time. While we have explored the use of Goroutines and Waitgroups to enable asynchronous execution, you might be curious about how to share data between Goroutines.</p>
 

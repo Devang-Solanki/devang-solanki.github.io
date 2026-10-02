@@ -34,10 +34,8 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","datePublished":"2021-08-26","dateModified":"2021-08-26","headline":"HaskHell - TryHackMe Writeup","description":"TryHackMe HaskHell room writeup - Teach your CS professor that his PhD isn't in security","url":"https://devanghacks.in/writeups/haskhell.html","mainEntityOfPage":"https://devanghacks.in/writeups/haskhell.html","image":"https://devanghacks.in/assets/images/og.png","author":{"@type":"Person","name":"Devang Solanki","url":"https://devanghacks.in/"},"publisher":{"@type":"Person","name":"Devang Solanki","url":"https://devanghacks.in/"}}</script>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
     
 <script>/* theme-init */(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 
@@ -82,7 +80,7 @@
 
             <p>We have discovered a webserver running on port 5001, which seems to hosted by a professor.</p>
 
-            <img src="https://user-images.githubusercontent.com/75718583/130963432-ab921629-ac32-4c43-83a5-db48a40b6af0.png" alt="Professor's Homepage" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" src="https://user-images.githubusercontent.com/75718583/130963432-ab921629-ac32-4c43-83a5-db48a40b6af0.png" alt="Professor's Homepage" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <p>On exploring the website there is a link for uploading homework that redirect to http://IP/homework1/upload which does not seems to work.</p>
 
@@ -110,7 +108,7 @@ Task Completed</code></pre>
 
             <p>On visiting /submit page we can find a submit button. We can submit our haskell code and run arbitrary commands on the server.</p>
 
-            <img src="https://user-images.githubusercontent.com/75718583/130962994-6d9768d9-47c5-4c5e-9108-dbe5bcc90695.png" alt="Submit Page" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
+            <img loading="lazy" decoding="async" src="https://user-images.githubusercontent.com/75718583/130962994-6d9768d9-47c5-4c5e-9108-dbe5bcc90695.png" alt="Submit Page" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 6px;">
 
             <p>Let's create a reverse shell</p>
 
