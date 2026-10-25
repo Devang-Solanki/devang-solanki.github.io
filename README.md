@@ -62,4 +62,4 @@ GitHub Pages from the **`gh-pages`** branch, custom domain via `CNAME`. Push to 
 
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE).
